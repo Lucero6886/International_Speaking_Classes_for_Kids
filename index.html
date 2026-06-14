@@ -3,1151 +3,1049 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦁 Super Animals! | Lucero English System</title>
+    <title>Speaking Lesson: Yummy Food & Cooking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #4338CA; /* Deeper, more professional indigo */
-            --primary-light: #818CF8;
-            --secondary: #F59E0B;
-            --secondary-light: #FDE68A;
-            --bg-color: #F8FAFC;
+            --primary: #F97316; /* Tasty Orange */
+            --primary-hover: #EA580C;
+            --secondary: #FACC15; /* Cheesy Yellow */
+            --secondary-hover: #EAB308;
+            --accent: #10B981; /* Veggie Green */
+            --accent-hover: #059669;
+            --danger: #EF4444; /* Tomato Red */
+            --background: #FFF7ED; /* Very light peach */
             --card-bg: #FFFFFF;
-            --text-main: #1E293B;
-            --text-light: #64748B;
-            --success: #10B981;
-            --warning: #EF4444;
-            --a1-color: #3B82F6;
-            --a2-color: #8B5CF6;
-            --font-main: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif;
-            --font-ui: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            --text-main: #431407; /* Dark brown */
+            --text-light: #78350F;
+            --radius: 24px; 
+            --font-headings: 'Nunito', sans-serif;
+            --font-main: 'Quicksand', sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            overflow-wrap: break-word; /* Prevents text overflow */
         }
 
         body {
-            font-family: var(--font-ui);
-            background-color: var(--bg-color);
-            background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
-            background-size: 20px 20px;
+            font-family: var(--font-main);
+            background-color: var(--background);
             color: var(--text-main);
             line-height: 1.6;
-            font-size: 18px; /* Larger base font for Zoom visibility */
-            padding-bottom: 0;
+            font-size: 20px; 
+            padding-bottom: 80px;
+            font-weight: 500;
+            overflow-x: hidden;
+            word-wrap: break-word; /* Prevents text overflow */
         }
 
-        h1, h2, h3, h4, .kid-font {
-            font-family: var(--font-main);
-        }
-
-        /* Sticky Progress Header with Branding */
-        #progress-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--card-bg);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            z-index: 1000;
-            padding: 12px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--primary);
-        }
-
-        .brand-title {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .progress-bar-container {
-            flex-grow: 1;
-            background: #E2E8F0;
-            height: 14px;
-            border-radius: 10px;
-            margin: 0 20px;
-            overflow: hidden;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        #progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--secondary), var(--success));
-            width: 0%;
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Toast Notification (Replaces alerts) */
-        #toast-container {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--text-main);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-weight: bold;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
-            z-index: 2000;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-        }
-
-        #toast-container.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        /* Main Container */
         .container {
-            max-width: 1000px; /* Widened for better presentation display */
-            margin: 90px auto 40px;
-            padding: 0 20px;
-        }
-
-        /* Sections and Cards */
-        section {
-            margin-bottom: 40px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            border-top: 8px solid var(--primary-light);
-            border-bottom: 2px solid #E2E8F0;
-        }
-
-        .hero-section {
-            text-align: center;
-            border-top: 8px solid var(--secondary);
-            background: linear-gradient(135deg, #EEF2FF 0%, #FFFBEB 100%);
-        }
-
-        .hero-section h1 {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .pill-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .pill {
-            background: var(--card-bg);
-            padding: 6px 18px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--primary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-            border: 2px solid var(--primary-light);
-        }
-
-        .flow-box {
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
+            max-width: 950px;
+            margin: 0 auto;
             padding: 20px;
-            margin-top: 20px;
-            text-align: left;
-            border: 1px solid #E0E7FF;
         }
 
-        .flow-box ul, .flow-box ol {
-            margin-left: 20px;
-            margin-top: 10px;
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #F97316, #EF4444, #F59E0B);
+            color: white;
+            border-radius: 0 0 35px 35px;
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+            margin-bottom: 40px;
+            border-bottom: 8px solid var(--secondary);
+            position: relative;
         }
 
-        .flow-box ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-            margin-left: 0;
-        }
-
-        .flow-box li {
-            background: var(--card-bg);
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-            border-left: 4px solid var(--primary-light);
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 2px dashed #E2E8F0;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 12px;
-        }
-
-        /* Buttons */
-        button {
-            cursor: pointer;
-            font-family: var(--font-ui);
-            border: none;
-            border-radius: 12px;
-            padding: 12px 24px;
+        .brand-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            padding: 10px 25px;
+            border-radius: 30px;
             font-size: 1.1rem;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 0 #312E81;
-        }
-        
-        .btn-primary:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 #312E81;
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: white;
-            box-shadow: 0 4px 0 #B45309;
-        }
-
-        .btn-secondary:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 #B45309;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 20px;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-light);
-            color: white;
-            border-color: var(--primary-light);
-        }
-
-        /* Interactive Elements */
-        .question-card {
-            background: #F8FAFC;
-            border: 2px solid #E2E8F0;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: box-shadow 0.2s ease;
-        }
-        
-        .question-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: #CBD5E1;
-        }
-
-        .question-text {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--text-main);
+            font-family: var(--font-headings);
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             margin-bottom: 15px;
+            border: 3px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 0px rgba(0,0,0,0.1);
         }
+
+        h1, h2, h3 { font-family: var(--font-headings); }
+        h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 15px; text-shadow: 2px 4px 0px rgba(0,0,0,0.2); line-height: 1.2; letter-spacing: -1px;}
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; border-bottom: 4px dashed #FED7AA; padding-bottom: 12px; font-weight: 900;}
+        h3 { font-size: 1.6rem; margin-bottom: 12px; color: var(--text-main); font-weight: 800;}
+        
+        .section-block {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+            border: 3px solid #FFEDD5;
+        }
+
+        .warmup-card {
+            background: #FEFCE8;
+            border: 3px solid #FEF08A;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .warmup-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(250, 204, 21, 0.2); }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-family: var(--font-headings);
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 0px var(--primary-hover); 
+            white-space: normal;
+            text-align: left;
+        }
+        button:hover { transform: translateY(2px); box-shadow: 0 4px 0px var(--primary-hover); }
+        button:active { transform: translateY(6px); box-shadow: 0 0px 0px var(--primary-hover); }
+        
+        .btn-outline { background-color: white; color: var(--primary); border: 3px solid var(--primary); box-shadow: 0 5px 0px var(--primary); }
+        .btn-outline:hover { background-color: #FFF7ED; box-shadow: 0 3px 0px var(--primary); }
+        .btn-yellow { background-color: var(--secondary); color: #713F12; box-shadow: 0 6px 0px var(--secondary-hover); }
+        .btn-yellow:hover { background-color: #FDE047; box-shadow: 0 4px 0px var(--secondary-hover); }
 
         .hidden-content {
             display: none;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px dashed #CBD5E1;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .hidden-content.show {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .answer-a1, .answer-a2 {
-            padding: 12px 15px;
-            border-radius: 0 10px 10px 0;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-
-        .answer-a1 {
-            background: #EFF6FF;
-            border-left: 6px solid var(--a1-color);
-        }
-
-        .answer-a2 {
-            background: #F5F3FF;
-            border-left: 6px solid var(--a2-color);
-        }
-
-        .tag-a1 { background: var(--a1-color); color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 5px; }
-        .tag-a2 { background: var(--a2-color); color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; display: inline-block; margin-bottom: 5px; }
-
-        /* Vocabulary Grid */
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Widened to prevent overflow */
-            gap: 20px;
-        }
-
-        .vocab-card {
-            background: white;
-            border: 2px solid #E2E8F0;
-            border-radius: 15px;
+            margin-top: 20px;
             padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            background-color: #FFFBEB;
+            border-left: 6px solid var(--primary);
+            border-radius: 0 16px 16px 0;
+            animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            font-size: 1.25rem;
+            color: #78350F;
+            font-weight: 700;
         }
+
+        @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .vocab-card {
+            background: #fff; border: 3px solid #FED7AA; border-radius: 24px; padding: 25px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .vocab-word { font-size: 1.8rem; font-family: var(--font-headings); font-weight: 900; color: var(--danger); margin-bottom: 10px; }
+        .vocab-def { font-size: 1.15rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; font-weight: 700;}
+
+        .question-block { border: 3px solid #FED7AA; border-radius: 20px; margin-bottom: 20px; overflow: hidden; background: #fff; }
+        .question-header {
+            background: #FFF7ED; padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-headings); font-weight: 800; font-size: 1.3rem; gap: 15px; flex-wrap: wrap; 
+        }
+        .question-header:hover { background: #FFEDD5; }
+        .question-body { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; background: white; }
+        .question-body.active { padding: 25px; max-height: 2000px; }
         
-        .vocab-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            border-color: var(--primary-light);
-        }
+        .tag { font-size: 1rem; padding: 6px 16px; border-radius: 20px; color: white; white-space: nowrap; font-family: var(--font-headings); font-weight: 900; text-transform: uppercase; }
+        .tag.easy { background: var(--accent); }
+        .tag.medium { background: var(--primary); }
+        .tag.opinion { background: var(--danger); }
 
-        .vocab-word {
-            font-size: 1.8rem;
-            font-family: var(--font-main);
-            color: var(--primary);
-            margin-bottom: 5px;
-            word-wrap: break-word;
-        }
+        .idea-bank { background: #ECFDF5; padding: 25px; border-radius: 16px; margin-bottom: 20px; border: 3px dashed #34D399; }
+        .sample-answers { display: grid; gap: 15px; }
 
-        /* Flashcards (Fluency Builder) */
-        .flashcard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+        .roleplay-card { background: #FEF2F2; padding: 30px; border-radius: 24px; margin-bottom: 25px; border: 4px solid #FECACA; }
+        .role-badge { display: inline-block; background: var(--danger); color: white; padding: 8px 18px; border-radius: 20px; font-family: var(--font-headings); font-size: 1.1rem; font-weight: 900; margin-right: 10px; margin-bottom: 10px; box-shadow: 0 3px 0px #B91C1C;}
 
-        .flashcard {
-            background: #FFFBEB;
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
-            cursor: pointer;
-            border: 3px solid var(--secondary-light);
-            min-height: 140px;
+        .chat-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        
-        .flashcard:hover { transform: scale(1.02); border-color: var(--secondary); }
-
-        .flashcard-back {
-            display: none;
-            font-size: 1rem;
-            margin-top: 15px;
-            border-top: 2px dashed #D97706;
-            padding-top: 15px;
-            color: #92400E;
-        }
-
-        .flashcard.flipped { background: #FEF3C7; }
-        .flashcard.flipped .flashcard-front { display: none; }
-        .flashcard.flipped .flashcard-back { display: block; animation: fadeIn 0.3s; }
-
-        /* Review Game */
-        #game-container {
-            background: linear-gradient(135deg, var(--primary), #312E81);
-            color: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
-        }
-
-        .game-option {
-            background: white;
-            color: var(--primary);
-            width: 100%;
-            margin: 10px 0;
-            padding: 18px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 12px;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .game-option:hover:not(:disabled) { background: #EEF2FF; transform: scale(1.01); }
-        .game-option.correct { background: var(--success); color: white; border-color: #059669; }
-        .game-option.wrong { background: var(--warning); color: white; border-color: #B91C1C; }
-        .game-option:disabled { cursor: not-allowed; opacity: 0.9; }
-
-        /* Checkboxes & Reflection */
-        .tracker-list { list-style: none; margin-bottom: 20px; }
-        .tracker-list li {
-            margin: 15px 0;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
             gap: 15px;
-            cursor: pointer;
-            background: #F8FAFC;
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 1px solid #E2E8F0;
-        }
-        
-        .tracker-checkbox {
-            width: 28px;
-            height: 28px;
-            accent-color: var(--success);
-            cursor: pointer;
-        }
-
-        .emoji-selector span {
-            transition: transform 0.2s;
-            display: inline-block;
-        }
-        .emoji-selector span:hover {
-            transform: scale(1.2);
-        }
-
-        /* Teacher Support */
-        .teacher-box {
-            background: #FFFBEB;
-            border-left: 8px solid #F59E0B;
-            border-radius: 10px;
+            margin-top: 20px;
             padding: 25px;
+            background: #FFF7ED;
+            border-radius: 20px;
+            border: 3px dashed #FDBA74;
+            animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            display: none; /* Hidden initially */
         }
 
-        .zoom-tip {
-            display: inline-block;
-            background: #DBEAFE;
-            color: #1E3A8A;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 12px;
-            border: 1px solid #BFDBFE;
-        }
-
-        .copy-box {
-            background: #1E293B;
-            color: #10B981;
-            padding: 20px;
-            border-radius: 12px;
-            font-family: monospace;
-            margin: 15px 0;
+        .chat-bubble {
+            padding: 15px 22px;
+            border-radius: 24px;
+            max-width: 85%;
+            font-size: 1.25rem;
+            line-height: 1.5;
             position: relative;
-            white-space: pre-wrap;
-            font-size: 1.1rem;
-        }
-        
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        .copy-btn:hover { background: rgba(255,255,255,0.3); }
-
-        .instruction {
-            font-style: italic;
-            color: var(--text-light);
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        /* Footer Branding */
-        .lesson-footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            background: var(--text-main);
-            color: white;
-            border-radius: 20px 20px 0 0;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-        }
-
-        .lesson-footer h3 {
-            color: var(--secondary-light);
-            margin-bottom: 10px;
             font-family: var(--font-main);
+            font-weight: 700;
         }
 
-        .lesson-footer p {
-            color: #9CA3AF;
-            font-size: 1rem;
+        .chat-bubble.left {
+            background: white;
+            color: var(--text-main);
+            border: 3px solid #FED7AA;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 4px 0px rgba(0,0,0,0.05);
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .hero-section h1 { font-size: 2.2rem; }
-            section { padding: 20px; }
-            .pill { font-size: 0.85rem; padding: 5px 12px; }
-            h2 { font-size: 1.8rem; }
-            .brand-title span { display: none; } /* Hide text on very small screens, keep emoji */
+        .chat-bubble.right {
+            background: var(--danger);
+            color: white;
+            border: 3px solid #B91C1C;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0 4px 0px #9F1239;
+        }
+
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .flashcard { perspective: 1000px; height: 160px; cursor: pointer; }
+        .flashcard-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-front, .flashcard-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; border-radius: 24px; padding: 20px; font-size: 1.3rem; line-height: 1.4; box-shadow: 0 6px 0px rgba(0,0,0,0.1);
+        }
+        .flashcard-front { background: linear-gradient(135deg, var(--primary), #EF4444); color: white; font-family: var(--font-headings); font-weight: 900; border: 4px solid #EA580C; }
+        .flashcard-back { background-color: white; color: var(--text-main); transform: rotateY(180deg); border: 4px solid var(--primary); font-weight: 800;}
+
+        .quiz-question { margin-bottom: 20px; display: none; }
+        .quiz-question.active { display: block; animation: bounceIn 0.5s; }
+        .quiz-options { display: grid; gap: 15px; margin-top: 20px; }
+        .quiz-btn { background: #FFF7ED; color: var(--text-main); text-align: left; justify-content: flex-start; border: 3px solid #FED7AA; box-shadow: 0 5px 0px #FDBA74;}
+        .quiz-btn:hover { background: #FFEDD5; transform: translateY(2px); box-shadow: 0 3px 0px #FDBA74; }
+        .quiz-btn.correct { background: #D1FAE5; border-color: #10B981; color: #065F46; box-shadow: 0 5px 0px #059669;}
+        .quiz-btn.wrong { background: #FFE4E6; border-color: #E11D48; color: #9F1239; box-shadow: 0 5px 0px #BE123C;}
+
+        .reflection-q { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #FFF7ED; margin-bottom: 15px; border-radius: 20px; border: 2px dashed #FDBA74; flex-wrap: wrap; gap: 15px;}
+        .emoji-rating span { font-size: 3rem; cursor: pointer; opacity: 0.4; transition: opacity 0.2s, transform 0.2s; margin-left: 10px; filter: grayscale(100%);}
+        .emoji-rating span:hover, .emoji-rating span.selected { opacity: 1; transform: scale(1.2); filter: grayscale(0%);}
+
+        .progress-bar-container {
+            position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 20px; border-bottom: 4px solid var(--primary);
+        }
+        .progress-bar { flex-grow: 1; height: 24px; background: #FFEDD5; border-radius: 12px; overflow: hidden; border: 3px solid #FDBA74;}
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #FACC15, #F97316); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 8px;}
+        
+        .checklist-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 1.3rem; cursor: pointer; padding: 15px; border-radius: 16px; background: white; border: 3px solid #FED7AA; font-family: var(--font-headings); font-weight: 800;}
+        .checklist-item:hover { background: #FFF7ED; border-color: var(--primary);}
+        .checklist-item input { transform: scale(2); cursor: pointer; accent-color: var(--primary); margin-left: 10px; margin-right: 10px;}
+
+        .brand-footer { text-align: center; padding: 40px 20px; background-color: #431407; color: #FFEDD5; margin-top: 50px; font-size: 1.1rem; border-top: 8px solid var(--secondary); font-family: var(--font-headings); border-radius: 35px 35px 0 0;}
+        .brand-footer strong { color: var(--secondary); }
+
+        #toast {
+            visibility: hidden; min-width: 250px; background-color: #EF4444; color: #fff; text-align: center; border-radius: 20px; padding: 16px 24px; position: fixed; z-index: 1000; left: 50%; bottom: 30px; transform: translateX(-50%) translateY(20px); font-size: 1.25rem; font-family: var(--font-headings); font-weight: 900; border: 4px solid #B91C1C; box-shadow: 0 10px 25px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.3s, transform 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        #toast.show { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(67, 20, 7, 0.85); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: white; padding: 50px; border-radius: 30px; max-width: 600px; text-align: center; border: 8px solid var(--secondary); transform: scale(0.8); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .modal-content h2 { color: var(--primary); font-size: 3.5rem; margin-bottom: 15px; border: none; padding: 0;}
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .question-header { flex-direction: column; align-items: flex-start; }
+            .vocab-grid, .flashcard-grid { grid-template-columns: 1fr; }
+            .reflection-q { flex-direction: column; align-items: flex-start; }
+            .chat-bubble { max-width: 95%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Toast Notification (Replaces window.alert) -->
-    <div id="toast-container">Notification message here</div>
-
-    <!-- Sticky Progress Header -->
-    <div id="progress-header">
-        <div class="brand-title">🦁 <span>Lucero English</span></div>
-        <div class="progress-bar-container">
-            <div id="progress-bar"></div>
+    <div class="progress-bar-container">
+        <span style="font-family: var(--font-headings); font-weight: 900; color: var(--primary); white-space: nowrap; font-size: 1.2rem;">⭐ My Progress</span>
+        <div class="progress-bar">
+            <div class="progress-fill" id="top-progress"></div>
         </div>
-        <span id="progress-text" style="font-weight: bold; color: var(--primary); font-size: 1.1rem;">0%</span>
+        <span id="progress-text" style="font-family: var(--font-headings); font-weight: 900; color: var(--text-main); font-size: 1.2rem;">0%</span>
     </div>
+
+    <header>
+        <div class="brand-badge">Lucero English System</div>
+        <h1>🍔 Yummy Food & Cooking Fun!</h1>
+        <p style="font-size: 1.5rem; font-weight: 700; opacity: 0.95; font-family: var(--font-main);">An A1-B1 Interactive English Speaking Lesson for Kids</p>
+        
+        <div style="background: rgba(255,255,255,0.2); border: 3px dashed rgba(255,255,255,0.6); padding: 30px; border-radius: 24px; margin-top: 35px; text-align: left; max-width: 750px; margin-left: auto; margin-right: auto;">
+            <strong style="font-size: 1.5rem; font-family: var(--font-headings); display: block; margin-bottom: 15px; color: #FEF08A;">🎯 Today's Goals:</strong>
+            <ul style="margin-left: 25px; line-height: 1.8; font-weight: 700; font-size: 1.2rem;">
+                <li>Learn fun words to talk about tastes, cooking, and meals.</li>
+                <li>Describe your favorite foods and healthy eating habits.</li>
+                <li>Role-play ordering yummy food at a restaurant!</li>
+            </ul>
+        </div>
+    </header>
 
     <div class="container">
 
-        <!-- SECTION 1: HERO OVERVIEW -->
-        <section class="hero-section" id="section-1">
-            <h1>🦁 Super Animals! 🐾</h1>
-            <p style="font-size: 1.3rem; margin-bottom: 25px; color: var(--text-light); font-weight: 500;">Let's talk about our favorite pets and wild animals!</p>
+        <div class="section-block" id="sec1">
+            <h2>1. Let's Warm Up! 🍕</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Are you hungry? Let's talk about food! Click to see an example.</p>
             
-            <div class="pill-container">
-                <span class="pill">👥 Kids (8-12)</span>
-                <span class="pill">📊 Mixed A1-A2</span>
-                <span class="pill">⏱️ 60 Minutes</span>
-                <span class="pill">💻 Zoom Class</span>
-            </div>
-
-            <div class="flow-box">
-                <h3 class="kid-font">🎯 Today's Goals (By the end of this lesson, you can...):</h3>
-                <ol style="font-size: 1.1rem;">
-                    <li><strong>Name</strong> 10 common and wild animals clearly.</li>
-                    <li><strong>Describe</strong> animals using cool action words and adjectives.</li>
-                    <li><strong>Explain</strong> why you like an animal using "because".</li>
-                </ol>
-            </div>
-
-            <div class="flow-box" style="background: rgba(255,255,255,0.9);">
-                <h3 class="kid-font">⏱️ Zoom Teaching Flow:</h3>
-                <ul>
-                    <li>1. Warm-up (5 min)</li>
-                    <li>2. Vocabulary (8 min)</li>
-                    <li>3. Controlled Practice (8 min)</li>
-                    <li>4. Main Speaking (15 min)</li>
-                    <li>5. Breakout Role-play (12 min)</li>
-                    <li>6. Review Game (5 min)</li>
-                    <li>7. Reflection (5 min)</li>
-                    <li>8. Wrap-up (2 min)</li>
-                </ul>
-            </div>
-
-            <div style="margin-top: 30px;">
-                <button class="btn-primary" style="font-size: 1.3rem; padding: 15px 30px;" onclick="document.getElementById('section-2').scrollIntoView({behavior: 'smooth'})">🚀 Start Lesson!</button>
-            </div>
-        </section>
-
-        <!-- SECTION 2: WARM-UP -->
-        <section id="section-2">
-            <h2>🔥 1. Warm-up: Animal Chat!</h2>
-            <p class="instruction"><span class="zoom-tip">ZOOM TIP</span> Ask students to type simple answers in the chat, then select 2-3 students to unmute and speak.</p>
-            
-            <div class="question-card">
-                <div class="question-text">1. Do you have a pet at home? 🐶🐱</div>
-                <button class="btn-secondary" onclick="toggleReveal('wu-1')">👀 See Answers</button>
-                <div id="wu-1" class="hidden-content">
-                    <div class="answer-a1"><span class="tag-a1">A1 Core</span> Yes, I have a dog. / No, I don't.</div>
-                    <div class="answer-a2"><span class="tag-a2">A2 Extended</span> Yes, I have a cute cat. Her name is Bella.</div>
+            <div class="warmup-card">
+                <h3>🍟 1. What is your favorite food in the whole world?</h3>
+                <button class="btn-yellow" onclick="toggleContent('wu1')">See Example 👀</button>
+                <div id="wu1" class="hidden-content">
+                    "My absolute favorite food is pepperoni pizza with extra cheese!"
                 </div>
             </div>
-
-            <div class="question-card">
-                <div class="question-text">2. What is your favorite animal in the world? 🐘🐅</div>
-                <button class="btn-secondary" onclick="toggleReveal('wu-2')">👀 See Answers</button>
-                <div id="wu-2" class="hidden-content">
-                    <div class="answer-a1"><span class="tag-a1">A1 Core</span> My favorite animal is a tiger.</div>
-                    <div class="answer-a2"><span class="tag-a2">A2 Extended</span> I love dolphins because they are very smart.</div>
+            <div class="warmup-card">
+                <h3>🥞 2. What did you eat for breakfast today?</h3>
+                <button class="btn-yellow" onclick="toggleContent('wu2')">See Example 👀</button>
+                <div id="wu2" class="hidden-content">
+                    "Today I ate sweet pancakes with honey and drank a glass of orange juice."
                 </div>
             </div>
-
-            <div class="question-card">
-                <div class="question-text">3. Are you scared of any animals? 🕷️🐍</div>
-                <button class="btn-secondary" onclick="toggleReveal('wu-3')">👀 See Answers</button>
-                <div id="wu-3" class="hidden-content">
-                    <div class="answer-a1"><span class="tag-a1">A1 Core</span> Yes, I am scared of spiders.</div>
-                    <div class="answer-a2"><span class="tag-a2">A2 Extended</span> Yes, I hate snakes because they are scary and dangerous.</div>
+            <div class="warmup-card">
+                <h3>🌶️ 3. Do you like eating sweet food or spicy food?</h3>
+                <button class="btn-yellow" onclick="toggleContent('wu3')">See Example 👀</button>
+                <div id="wu3" class="hidden-content">
+                    "I love sweet food like chocolate, but I hate spicy food because it burns my mouth!"
                 </div>
             </div>
-
-            <div class="question-card">
-                <div class="question-text">4. Where can we go to see animals? 🏞️🦓</div>
-                <button class="btn-secondary" onclick="toggleReveal('wu-4')">👀 See Answers</button>
-                <div id="wu-4" class="hidden-content">
-                    <div class="answer-a1"><span class="tag-a1">A1 Core</span> We can go to the zoo or the park.</div>
-                    <div class="answer-a2"><span class="tag-a2">A2 Extended</span> We can see animals in the zoo, the forest, or the pet shop.</div>
+            <div class="warmup-card">
+                <h3>🥦 4. What is a food that you really hate eating?</h3>
+                <button class="btn-yellow" onclick="toggleContent('wu4')">See Example 👀</button>
+                <div id="wu4" class="hidden-content">
+                    "I really hate eating broccoli and onions. They taste very yucky to me."
                 </div>
             </div>
-
-            <div class="question-card">
-                <div class="question-text">5. If you could be an animal for one day, what would you be? 🦅🐒</div>
-                <button class="btn-secondary" onclick="toggleReveal('wu-5')">👀 See Answers</button>
-                <div id="wu-5" class="hidden-content">
-                    <div class="answer-a1"><span class="tag-a1">A1 Core</span> I want to be a bird.</div>
-                    <div class="answer-a2"><span class="tag-a2">A2 Extended</span> I would be an eagle so I can fly high in the sky.</div>
+            <div class="warmup-card">
+                <h3>🍔 5. If you could eat burgers every day, would you?</h3>
+                <button class="btn-yellow" onclick="toggleContent('wu5')">See Example 👀</button>
+                <div id="wu5" class="hidden-content">
+                    "Yes, I would! But my mom says I need to eat vegetables to be strong and healthy."
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 3: VOCABULARY INPUT -->
-        <section id="section-3">
-            <h2>📚 2. Super Words!</h2>
-            <p class="instruction"><span class="zoom-tip">ZOOM TIP</span> Use "Repeat after me". Have students unmute their mics at the same time for a fun, noisy choral drill, then ask individuals.</p>
+        <div class="section-block" id="sec2">
+            <h2>2. Kitchen Words 🧑‍🍳</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Let's learn new cooking words! Click "See Example" and the Speaker icon 🔊 to hear the word!</p>
             
             <div class="vocab-grid">
-                <!-- Vocab 1 -->
                 <div class="vocab-card">
-                    <div class="vocab-word">Fluffy ☁️</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(FLUF-fee)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> Covered with very soft hair or feathers.</p>
-                    <span class="tag-a1">A1</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-1')">Example</button>
-                    <div id="v-1" class="hidden-content" style="font-size: 1rem;">"My rabbit is very <strong>fluffy</strong>."</div>
-                </div>
-                <!-- Vocab 2 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Wild 🌲</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(WY-uld)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> Living in nature, not kept as a pet.</p>
-                    <span class="tag-a1">A1</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-2')">Example</button>
-                    <div id="v-2" class="hidden-content" style="font-size: 1rem;">"Lions are <strong>wild</strong> animals."</div>
-                </div>
-                <!-- Vocab 3 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Climb 🧗</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(KLIME)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> To use hands and feet to go up a tree or wall.</p>
-                    <span class="tag-a1">A1</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-3')">Example</button>
-                    <div id="v-3" class="hidden-content" style="font-size: 1rem;">"Monkeys can <strong>climb</strong> trees very fast."</div>
-                </div>
-                <!-- Vocab 4 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Sharp Teeth 🦷</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(SHARP TEETH)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> Teeth that easily cut meat and food.</p>
-                    <span class="tag-a2">A2</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-4')">Example</button>
-                    <div id="v-4" class="hidden-content" style="font-size: 1rem;">"Sharks have many <strong>sharp teeth</strong>."</div>
-                </div>
-                <!-- Vocab 5 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Hunt 🐅</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(HUNT)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> To chase and catch other animals for food.</p>
-                    <span class="tag-a2">A2</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-5')">Example</button>
-                    <div id="v-5" class="hidden-content" style="font-size: 1rem;">"Cheetahs <strong>hunt</strong> in the morning."</div>
-                </div>
-                <!-- Vocab 6 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Colorful 🦜</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(KUL-er-ful)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> Having many bright and beautiful colors.</p>
-                    <span class="tag-a1">A1</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-6')">Example</button>
-                    <div id="v-6" class="hidden-content" style="font-size: 1rem;">"Parrots are very <strong>colorful</strong> birds."</div>
-                </div>
-                <!-- Vocab 7 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Dangerous ⚠️</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(DAYN-jer-us)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> Not safe; able to hurt you or cause harm.</p>
-                    <span class="tag-a2">A2</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-7')">Example</button>
-                    <div id="v-7" class="hidden-content" style="font-size: 1rem;">"Don't touch the snake, it is <strong>dangerous</strong>."</div>
-                </div>
-                <!-- Vocab 8 -->
-                <div class="vocab-card">
-                    <div class="vocab-word">Protect 🛡️</div>
-                    <div style="color: var(--text-light); font-size: 0.95rem;">(pro-TEKT)</div>
-                    <p style="margin: 15px 0; font-size: 1.05rem;"><strong>Meaning:</strong> To keep someone or something safe from danger.</p>
-                    <span class="tag-a2">A2</span>
-                    <button class="btn-outline" style="margin-top:10px; width:100%;" onclick="toggleReveal('v-8')">Example</button>
-                    <div id="v-8" class="hidden-content" style="font-size: 1rem;">"Mother bears <strong>protect</strong> their babies."</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: CONTROLLED SPEAKING PRACTICE -->
-        <section id="section-4">
-            <h2>🧩 3. Sentence Builders!</h2>
-            <p class="instruction">Teacher: Guide students to make sentences using these frames. Start easy, then add the challenge.</p>
-            
-            <div class="question-card">
-                <h3>Level 1: I like... (A1)</h3>
-                <p style="font-size: 1.4rem; margin: 20px 0; padding: 20px; background: #FFFBEB; border-radius: 12px; border-left: 6px solid var(--a1-color);">
-                    "I like <strong>[animal]</strong> because it is <strong>[adjective]</strong>."
-                </p>
-                <p style="font-size: 1.1rem;"><em>Example: "I like pandas because they are fluffy."</em></p>
-                <div style="margin-top: 20px; font-size: 1.1rem;">
-                    <strong>Your turn! Choose:</strong> 
-                    <div class="pill-container" style="justify-content: flex-start; margin-top: 10px;">
-                        <span class="pill">cats</span> <span class="pill">dogs</span> <span class="pill">tigers</span> <span class="pill">fast</span> <span class="pill">cute</span> <span class="pill">scary</span>
+                    <div class="vocab-word">Delicious (adj.)</div>
+                    <div class="vocab-def">Very tasty and good to eat.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc1')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Delicious')">🔊</button>
                     </div>
-                </div>
-            </div>
-
-            <div class="question-card">
-                <h3>Level 2: It can... (A2)</h3>
-                <p style="font-size: 1.4rem; margin: 20px 0; padding: 20px; background: #F5F3FF; border-radius: 12px; border-left: 6px solid var(--a2-color);">
-                    "My favorite animal is the <strong>[animal]</strong> because it can <strong>[action]</strong> and it has <strong>[body part]</strong>."
-                </p>
-                <p style="font-size: 1.1rem;"><em>Example: "My favorite animal is the monkey because it can climb and it has a long tail."</em></p>
-                <div style="margin-top: 20px; font-size: 1.1rem;">
-                    <strong>Your turn! Choose:</strong> 
-                    <div class="pill-container" style="justify-content: flex-start; margin-top: 10px;">
-                        <span class="pill">run fast</span> <span class="pill">swim</span> <span class="pill">fly</span> <span class="pill">sharp teeth</span> <span class="pill">big wings</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: MAIN SPEAKING QUESTIONS -->
-        <section id="section-5">
-            <h2>🎤 4. Let's Talk!</h2>
-            <p class="instruction"><span class="zoom-tip">ZOOM TIP</span> Assign students different numbers to prepare. Give them 1 minute of thinking time before calling on them.</p>
-
-            <!-- Q1 -->
-            <div class="question-card">
-                <div class="question-text">1. Describe a dog. What does it look like? What can it do? 🐕</div>
-                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
-                    <span class="tag-a1" style="font-size:1rem;">Easy</span>
-                    <span class="pill" style="font-size:0.85rem;">fluffy</span>
-                    <span class="pill" style="font-size:0.85rem;">run</span>
-                    <span class="pill" style="font-size:0.85rem;">tail</span>
-                </div>
-                <button class="btn-secondary" onclick="toggleReveal('mq-1')">Show Answers</button>
-                <div id="mq-1" class="hidden-content">
-                    <div class="answer-a1"><strong>A1:</strong> A dog has four legs and a tail. It can run.</div>
-                    <div class="answer-a2"><strong>A2:</strong> A dog is fluffy and friendly. It has a long tail and it can run very fast to catch a ball.</div>
-                </div>
-            </div>
-
-            <!-- Q2 -->
-            <div class="question-card">
-                <div class="question-text">2. Which is better as a pet: a cat or a dog? Why? 🤔</div>
-                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
-                    <span class="tag-a2" style="font-size:1rem;">Medium</span>
-                    <span class="pill" style="font-size:0.85rem;">friendly</span>
-                    <span class="pill" style="font-size:0.85rem;">quiet</span>
-                    <span class="pill" style="font-size:0.85rem;">play with me</span>
-                </div>
-                <button class="btn-secondary" onclick="toggleReveal('mq-2')">Show Answers</button>
-                <div id="mq-2" class="hidden-content">
-                    <div class="answer-a1"><strong>A1:</strong> I think a dog is better because it is fun.</div>
-                    <div class="answer-a2"><strong>A2:</strong> I think a cat is better because it is very quiet and fluffy. Dogs are too noisy.</div>
-                </div>
-            </div>
-
-            <!-- Q3 -->
-            <div class="question-card">
-                <div class="question-text">3. Tell me about a wild animal. Where does it live? 🦁</div>
-                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
-                    <span class="tag-a2" style="font-size:1rem;">Medium</span>
-                    <span class="pill" style="font-size:0.85rem;">jungle</span>
-                    <span class="pill" style="font-size:0.85rem;">hunt</span>
-                    <span class="pill" style="font-size:0.85rem;">dangerous</span>
-                </div>
-                <button class="btn-secondary" onclick="toggleReveal('mq-3')">Show Answers</button>
-                <div id="mq-3" class="hidden-content">
-                    <div class="answer-a1"><strong>A1:</strong> A lion lives in the wild. It is big and scary.</div>
-                    <div class="answer-a2"><strong>A2:</strong> A lion lives in the savanna. It is a dangerous wild animal and it hunts for meat.</div>
-                </div>
-            </div>
-
-            <!-- Q4 -->
-            <div class="question-card">
-                <div class="question-text">4. What animal are you most like? Why? 🌟</div>
-                <div class="pill-container" style="justify-content: flex-start; margin-bottom: 15px;">
-                    <span class="tag-a2" style="background: #E11D48; font-size:1rem;">Challenge</span>
-                    <span class="pill" style="font-size:0.85rem;">lazy like a cat</span>
-                    <span class="pill" style="font-size:0.85rem;">fast like a cheetah</span>
-                    <span class="pill" style="font-size:0.85rem;">smart like a dolphin</span>
-                </div>
-                <button class="btn-secondary" onclick="toggleReveal('mq-4')">Show Answers</button>
-                <div id="mq-4" class="hidden-content">
-                    <div class="answer-a1"><strong>A1:</strong> I am like a monkey because I like to play.</div>
-                    <div class="answer-a2"><strong>A2:</strong> I am like a cat because I like to sleep a lot on the weekend and I am very relaxed!</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 6: IDEA BANK -->
-        <section id="section-6">
-            <h2>💡 5. Idea Bank</h2>
-            <p class="instruction">Use these words if you are stuck!</p>
-            
-            <button class="btn-outline" style="width: 100%; text-align: left; margin-bottom: 15px; font-size: 1.2rem;" onclick="toggleReveal('ib-1')">➕ Adjectives (How they look & feel)</button>
-            <div id="ib-1" class="hidden-content" style="margin-top: 0; margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; font-size: 1.1rem; line-height: 2;">
-                <strong>Cute, Fluffy, Scary, Big, Tiny, Fast, Slow, Colorful, Dangerous, Friendly.</strong>
-            </div>
-
-            <button class="btn-outline" style="width: 100%; text-align: left; margin-bottom: 15px; font-size: 1.2rem;" onclick="toggleReveal('ib-2')">➕ Action Verbs (What they do)</button>
-            <div id="ib-2" class="hidden-content" style="margin-top: 0; margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; font-size: 1.1rem; line-height: 2;">
-                <strong>Run, Jump, Swim, Fly, Climb, Hunt, Hide, Sleep, Eat, Protect.</strong>
-            </div>
-
-            <button class="btn-outline" style="width: 100%; text-align: left; margin-bottom: 15px; font-size: 1.2rem;" onclick="toggleReveal('ib-3')">➕ Body Parts</button>
-            <div id="ib-3" class="hidden-content" style="margin-top: 0; margin-bottom: 20px; padding: 20px; background: white; border-radius: 10px; font-size: 1.1rem; line-height: 2;">
-                <strong>Long tail, Big ears, Sharp teeth, Wings, Four legs, Fur, Feathers, Scales.</strong>
-            </div>
-        </section>
-
-        <!-- SECTION 7: ROLE PLAY -->
-        <section id="section-7">
-            <h2>🎭 6. Breakout Room Role-Play</h2>
-            <p class="instruction"><span class="zoom-tip">ZOOM TIP</span> Put students in Breakout Rooms (Pairs) for 5-7 minutes. Assign Roles A and B.</p>
-            
-            <div class="question-card" style="border-color: var(--primary); border-width: 3px;">
-                <h3 style="color: var(--primary); font-size: 1.6rem;">🛒 Situation: At the Pet Shop</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Goal:</strong> Student A wants to buy a pet. Student B helps them choose.</p>
-                
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px; background: #DBEAFE; padding: 20px; border-radius: 15px; border: 2px solid #93C5FD;">
-                        <h4 style="font-size: 1.3rem; color: #1E3A8A;">👦 Student A (Customer)</h4>
-                        <ul style="margin-left: 20px; font-size: 1.1rem; margin-top: 15px;">
-                            <li>Say hello.</li>
-                            <li>Say what kind of pet you want (fluffy, quiet, small?).</li>
-                            <li>Ask: "What does it eat?"</li>
-                        </ul>
-                    </div>
-                    <div style="flex: 1; min-width: 250px; background: #D1FAE5; padding: 20px; border-radius: 15px; border: 2px solid #6EE7B7;">
-                        <h4 style="font-size: 1.3rem; color: #065F46;">👩‍🌾 Student B (Shop Worker)</h4>
-                        <ul style="margin-left: 20px; font-size: 1.1rem; margin-top: 15px;">
-                            <li>Say hello. "Can I help you?"</li>
-                            <li>Suggest an animal. "How about a [animal]?"</li>
-                            <li>Explain why it's a good pet.</li>
-                        </ul>
-                    </div>
+                    <div id="voc1" class="hidden-content">"Wow! This chocolate cake is absolutely <strong>delicious</strong>!"</div>
                 </div>
                 
-                <button class="btn-secondary" style="margin-top: 25px; width: 100%;" onclick="toggleReveal('rp-hint')">💬 Need help? Show dialogue hints</button>
-                <div id="rp-hint" class="hidden-content" style="background: white; padding: 20px; border-radius: 10px; font-size: 1.1rem;">
-                    <p style="margin-bottom: 10px;"><strong>A:</strong> Hello! I want a new pet. I want a small and fluffy animal.</p>
-                    <p style="margin-bottom: 10px;"><strong>B:</strong> Hello! How about a rabbit? It is very fluffy and cute.</p>
-                    <p style="margin-bottom: 10px;"><strong>A:</strong> Oh, I like rabbits! What does it eat?</p>
-                    <p><strong>B:</strong> It eats carrots and vegetables!</p>
+                <div class="vocab-card">
+                    <div class="vocab-word">Spicy (adj.)</div>
+                    <div class="vocab-def">Having a hot flavor that burns your mouth a little.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc2')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Spicy')">🔊</button>
+                    </div>
+                    <div id="voc2" class="hidden-content">"I need some water! This chili pepper is too <strong>spicy</strong>!"</div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div class="vocab-word">Chef (n.)</div>
+                    <div class="vocab-def">A person who cooks food as their job.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc3')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Chef')">🔊</button>
+                    </div>
+                    <div id="voc3" class="hidden-content">"When I grow up, I want to be a famous <strong>chef</strong> and open a restaurant."</div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div class="vocab-word">Ingredients (n.)</div>
+                    <div class="vocab-def">The different foods you need to make a meal.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc4')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Ingredients')">🔊</button>
+                    </div>
+                    <div id="voc4" class="hidden-content">"We need eggs, flour, and sugar as <strong>ingredients</strong> for the cookies."</div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div class="vocab-word">Recipe (n.)</div>
+                    <div class="vocab-def">Instructions telling you how to cook something.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc5')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Recipe')">🔊</button>
+                    </div>
+                    <div id="voc5" class="hidden-content">"I am following my grandmother's secret <strong>recipe</strong> to make soup."</div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div class="vocab-word">Order (v.)</div>
+                    <div class="vocab-def">To ask for food at a restaurant.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc6')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Order')">🔊</button>
+                    </div>
+                    <div id="voc6" class="hidden-content">"Hello, I would like to <strong>order</strong> a large pizza and fries, please."</div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div class="vocab-word">Healthy (adj.)</div>
+                    <div class="vocab-def">Good for your body and makes you strong.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc7')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Healthy')">🔊</button>
+                    </div>
+                    <div id="voc7" class="hidden-content">"Eating fresh apples and green vegetables is very <strong>healthy</strong>."</div>
+                </div>
+                
+                <div class="vocab-card">
+                    <div class="vocab-word">Dessert (n.)</div>
+                    <div class="vocab-def">Sweet food eaten at the end of a meal.</div>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
+                        <button class="btn-outline" onclick="toggleContent('voc8')">See Example 👀</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 55px; height: 55px; justify-content: center; font-size: 1.5rem;" onclick="playAudioToast('Dessert')">🔊</button>
+                    </div>
+                    <div id="voc8" class="hidden-content">"For <strong>dessert</strong>, we are having strawberry ice cream!"</div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 8: FLUENCY BUILDER -->
-        <section id="section-8">
-            <h2>⚡ 7. Sentence Starters (Click to flip!)</h2>
-            <p class="instruction">Use these magic phrases to sound more natural!</p>
+        <div class="section-block" id="sec3">
+            <h2>3. Time to Speak! 🗣️</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Let's answer these questions out loud. If you need help, open the <strong>Idea Bank</strong>!</p>
+
+            <div id="speaking-accordion">
+                <!-- Q1 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>1. What is your favorite snack to eat after school?</span>
+                        <span class="tag easy">Easy</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Sweet snacks:</strong> Cookies, chocolate, a piece of fruit, ice cream.</li>
+                                <li><strong>Salty snacks:</strong> Potato chips, cheese, sandwiches, crackers.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans1-short')">Short Answer</button>
+                            <div id="ans1-short" class="hidden-content">"My favorite snack after school is a chocolate chip cookie and milk."</div>
+                            
+                            <button class="btn-outline" onclick="toggleContent('ans1-ext')">Long Answer</button>
+                            <div id="ans1-ext" class="hidden-content">"When I come home from school, I am usually very hungry. My absolute favorite snack is a cold glass of milk and some warm chocolate chip cookies. Sometimes I also eat an apple if I want something healthy."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>2. Can you cook anything? What can you make?</span>
+                        <span class="tag easy">Easy</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Simple foods:</strong> Boiled eggs, instant noodles, toast with jam.</li>
+                                <li><strong>Helping mom/dad:</strong> Washing vegetables, mixing the cake batter, setting the table.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans2-short')">Short Answer</button>
+                            <div id="ans2-short" class="hidden-content">"Yes, I can make a sandwich and boil eggs all by myself."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans2-ext')">Long Answer</button>
+                            <div id="ans2-ext" class="hidden-content">"I am not a master chef yet, but I can make a few simple things! I know how to make toast with strawberry jam, and I can cook instant noodles. On the weekends, I help my mom mix the ingredients for pancakes."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>3. What do you usually have for dinner with your family?</span>
+                        <span class="tag easy">Easy</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Vietnamese food:</strong> Rice, hot soup, fried fish, boiled vegetables.</li>
+                                <li><strong>Western food:</strong> Spaghetti, roasted chicken, pizza.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans3-short')">Short Answer</button>
+                            <div id="ans3-short" class="hidden-content">"We usually have rice, chicken, and a big bowl of vegetable soup."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans3-ext')">Long Answer</button>
+                            <div id="ans3-ext" class="hidden-content">"For dinner, my family usually eats traditional Vietnamese food. We always have a big bowl of white rice, some fried pork or fish, and hot vegetable soup. My mom is a great cook, so dinner is always delicious!"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>4. Tell me about a time you went to a restaurant. What did you eat?</span>
+                        <span class="tag medium">Medium</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Where:</strong> A pizza place, a sushi restaurant, a fast-food shop.</li>
+                                <li><strong>What you ate:</strong> A huge slice of pizza, crispy fried chicken, yummy chocolate dessert.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans4-short')">Short Answer</button>
+                            <div id="ans4-short" class="hidden-content">"Last week we went to KFC and I ate fried chicken and french fries."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans4-ext')">Long Answer</button>
+                            <div id="ans4-ext" class="hidden-content">"For my birthday last month, my parents took me to a fantastic Italian restaurant. I ordered a huge spaghetti with meatballs, and it tasted amazing. After we finished our meal, the waiter brought me a slice of chocolate cake for dessert."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>5. Why is it important to eat fruits and vegetables?</span>
+                        <span class="tag medium">Medium</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Body:</strong> Makes you grow tall, makes your muscles strong, gives you energy.</li>
+                                <li><strong>Health:</strong> Vitamins, stops you from getting sick, good for your brain.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans5-short')">Short Answer</button>
+                            <div id="ans5-short" class="hidden-content">"It is important because they have vitamins that make us strong and healthy."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans5-ext')">Long Answer</button>
+                            <div id="ans5-ext" class="hidden-content">"I know that fruits and vegetables are very important for our bodies. They are full of healthy vitamins that stop us from getting sick. If we eat a lot of carrots and apples, we will have lots of energy to play sports and grow very tall."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>6. If you opened a restaurant, what kind of food would you sell?</span>
+                        <span class="tag medium">Medium</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Type of place:</strong> A sweet bakery, a spicy Mexican shop, a magical burger place.</li>
+                                <li><strong>Special menu:</strong> Rainbow ice cream, burgers as big as your head, flying pancakes.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans6-short')">Short Answer</button>
+                            <div id="ans6-short" class="hidden-content">"I would open a dessert shop and sell giant ice cream cones and cupcakes."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans6-ext')">Long Answer</button>
+                            <div id="ans6-ext" class="hidden-content">"That sounds so fun! If I opened a restaurant, it would be a magical dessert cafe. The menu would have rainbow cupcakes, chocolate fountains, and milkshakes that glow in the dark! I would be the head chef and invent new sweets every day."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>7. What is the strangest food you have ever tasted?</span>
+                        <span class="tag medium">Medium</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Weird foods:</strong> Snails, frog meat, a strange fruit (like Durian), bugs.</li>
+                                <li><strong>Feeling:</strong> Scared to try it, smelled funny, surprisingly tasty, very gross.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans7-short')">Short Answer</button>
+                            <div id="ans7-short" class="hidden-content">"The strangest food I ever ate was Durian fruit. It smelled terrible but tasted sweet!"</div>
+                            <button class="btn-outline" onclick="toggleContent('ans7-ext')">Long Answer</button>
+                            <div id="ans7-ext" class="hidden-content">"Last year, my uncle gave me something very strange to eat. It was a cooked snail! I was very scared to try it because it looked slippery and weird. When I finally took a bite, it was chewy and tasted a bit like chicken. It wasn't too bad!"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>8. Do you think kids should be allowed to eat candy every day?</span>
+                        <span class="tag opinion">Opinion</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>No:</strong> Bad for your teeth (cavities), too much sugar makes you crazy, not healthy.</li>
+                                <li><strong>Yes, but:</strong> Only one small piece after dinner, only if you brush your teeth well.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans8-short')">Short Answer</button>
+                            <div id="ans8-short" class="hidden-content">"No, because eating candy every day will give you bad teeth and a stomach ache."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans8-ext')">Long Answer</button>
+                            <div id="ans8-ext" class="hidden-content">"Even though I love sweets, I don't think kids should eat candy every single day. Sugar is very bad for our teeth and can give us painful cavities. Also, if we eat too much sugar, we might get a stomach ache. Candy should be a special treat for the weekend."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>9. Is it better to eat food cooked at home or eat at a restaurant?</span>
+                        <span class="tag opinion">Opinion</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>Home:</strong> Healthier, cheaper, family time, you know the ingredients.</li>
+                                <li><strong>Restaurant:</strong> Fun experience, you don't have to wash the dishes, fancy food.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans9-short')">Short Answer</button>
+                            <div id="ans9-short" class="hidden-content">"I think eating at home is better because my mom's cooking is very healthy."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans9-ext')">Long Answer</button>
+                            <div id="ans9-ext" class="hidden-content">"In my opinion, eating at home is much better. When we cook at home, we know exactly what ingredients we are using, so it is much healthier and cleaner. Also, cooking together is a fun way to spend time with my family. Restaurants are fun, but they are expensive."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question-block">
+                    <div class="question-header" onclick="toggleAccordion(this)">
+                        <span>10. Should parents force their children to eat vegetables if they hate them?</span>
+                        <span class="tag opinion">Opinion</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="idea-bank">
+                            <strong>💡 Idea Bank:</strong>
+                            <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
+                                <li><strong>No forcing:</strong> It makes kids cry, they will hate vegetables forever.</li>
+                                <li><strong>Creative ideas:</strong> Hide veggies in a soup, put cheese on top, make them look like funny faces.</li>
+                            </ul>
+                        </div>
+                        <div class="sample-answers">
+                            <button class="btn-outline" onclick="toggleContent('ans10-short')">Short Answer</button>
+                            <div id="ans10-short" class="hidden-content">"No, they shouldn't force them. Instead, parents should cook the vegetables in a yummy way."</div>
+                            <button class="btn-outline" onclick="toggleContent('ans10-ext')">Long Answer</button>
+                            <div id="ans10-ext" class="hidden-content">"I don't think parents should yell or force kids to eat vegetables because it makes kids feel sad. Instead, parents should try to be creative! They can hide carrots inside a tasty soup, or put melted cheese on top of broccoli to make it delicious. Cooking together also helps kids want to eat it."</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block" id="sec4">
+            <h2>4. Let's Act! 🎭</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Grab a partner and practice these fun restaurant situations.</p>
+
+            <div class="roleplay-card">
+                <h3>🍔 Scenario A: The Hungry Customer</h3>
+                <p style="margin-bottom: 15px; font-size: 1.15rem;"><strong>Situation:</strong> You are very hungry and go to a fast-food restaurant. You want to order a big meal. Talk to the waiter.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="role-badge">Student A: Hungry Customer</span>
+                    <span class="role-badge" style="background: var(--primary); box-shadow: 0 3px 0px var(--primary-hover);">Student B: Happy Waiter</span>
+                </div>
+                <button class="btn-outline" onclick="toggleChat('rp1-chat')">Show Conversation 👀</button>
+                
+                <div id="rp1-chat" class="chat-container">
+                    <div class="chat-bubble left"><strong>Waiter:</strong> Welcome to Happy Burger! What would you like to order today?</div>
+                    <div class="chat-bubble right"><strong>Customer:</strong> Hello! I am very hungry. I would like a giant cheeseburger, please.</div>
+                    <div class="chat-bubble left"><strong>Waiter:</strong> Would you like some fries and a drink with that?</div>
+                    <div class="chat-bubble right"><strong>Customer:</strong> Yes, large fries and a cold cola, please.</div>
+                    <div class="chat-bubble left"><strong>Waiter:</strong> Okay! That will be 10 dollars, please.</div>
+                    <div class="chat-bubble right"><strong>Customer:</strong> Here is the money. Thank you!</div>
+                </div>
+            </div>
+
+            <div class="roleplay-card">
+                <h3>🦕 Scenario B: The Toy in the Soup!</h3>
+                <p style="margin-bottom: 15px; font-size: 1.15rem;"><strong>Situation:</strong> You are eating at a fancy restaurant, but you find a plastic toy dinosaur inside your hot soup! Call the Chef.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="role-badge">Student A: Shocked Customer</span>
+                    <span class="role-badge" style="background: var(--primary); box-shadow: 0 3px 0px var(--primary-hover);">Student B: Confused Chef</span>
+                </div>
+                <button class="btn-outline" onclick="toggleChat('rp2-chat')">Show Conversation 👀</button>
+                
+                <div id="rp2-chat" class="chat-container">
+                    <div class="chat-bubble right"><strong>Customer:</strong> Excuse me, Mr. Chef! Come here, please!</div>
+                    <div class="chat-bubble left"><strong>Chef:</strong> Hello! Is there a problem with your food?</div>
+                    <div class="chat-bubble right"><strong>Customer:</strong> Yes! Look! There is a plastic dinosaur swimming in my soup!</div>
+                    <div class="chat-bubble left"><strong>Chef:</strong> Oh my goodness! I am so sorry! How did a dinosaur get in there?</div>
+                    <div class="chat-bubble right"><strong>Customer:</strong> I don't know, but I cannot eat this!</div>
+                    <div class="chat-bubble left"><strong>Chef:</strong> My little boy was playing in the kitchen today. I will make you a new, delicious soup for free!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block" id="sec5">
+            <h2>5. Sentence Builders 🚀</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Learn how to start your sentences like a Master Chef! Click to flip the cards.</p>
             
             <div class="flashcard-grid">
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-front">
-                        <h3 style="font-size: 1.4rem;">In my opinion... 🤔</h3>
-                        <p style="font-size: 0.95rem; color: #B45309; margin-top: 10px;">(Click to see meaning)</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <strong style="color:var(--text-main);">Meaning:</strong> I think...<br><br>
-                        <strong style="color:var(--text-main);">Example:</strong> "In my opinion, dogs are the best pets."
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">My favorite food is...</div>
+                        <div class="flashcard-back">"My favorite food is hot chicken soup."</div>
                     </div>
                 </div>
-
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-front">
-                        <h3 style="font-size: 1.4rem;">Because... 🔗</h3>
-                        <p style="font-size: 0.95rem; color: #B45309; margin-top: 10px;">(Click to see meaning)</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <strong style="color:var(--text-main);">Meaning:</strong> The reason is...<br><br>
-                        <strong style="color:var(--text-main);">Example:</strong> "I like cats because they are quiet."
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I really don't like...</div>
+                        <div class="flashcard-back">"I really don't like eating spicy peppers."</div>
                     </div>
                 </div>
-
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-front">
-                        <h3 style="font-size: 1.4rem;">For example... 📋</h3>
-                        <p style="font-size: 0.95rem; color: #B45309; margin-top: 10px;">(Click to see meaning)</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <strong style="color:var(--text-main);">Meaning:</strong> Let me show you...<br><br>
-                        <strong style="color:var(--text-main);">Example:</strong> "Wild animals are dangerous. For example, lions have sharp teeth."
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">For breakfast, I usually...</div>
+                        <div class="flashcard-back">"For breakfast, I usually eat bread and eggs."</div>
                     </div>
                 </div>
-
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="flashcard-front">
-                        <h3 style="font-size: 1.4rem;">What about you? 👈</h3>
-                        <p style="font-size: 0.95rem; color: #B45309; margin-top: 10px;">(Click to see meaning)</p>
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I think that eating...</div>
+                        <div class="flashcard-back">"I think that eating apples is very healthy."</div>
                     </div>
-                    <div class="flashcard-back">
-                        <strong style="color:var(--text-main);">Meaning:</strong> Tell me your answer.<br><br>
-                        <strong style="color:var(--text-main);">Example:</strong> "I love penguins. What about you?"
+                </div>
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">When I go to a restaurant...</div>
+                        <div class="flashcard-back">"When I go to a restaurant, I always order pizza."</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">It tastes very...</div>
+                        <div class="flashcard-back">"It tastes very sweet and delicious!"</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I would like to order...</div>
+                        <div class="flashcard-back">"I would like to order a burger, please."</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">If I were a chef...</div>
+                        <div class="flashcard-back">"If I were a chef, I would make giant cakes."</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">In my opinion...</div>
+                        <div class="flashcard-back">"In my opinion, candy is bad for your teeth."</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">First, you need to...</div>
+                        <div class="flashcard-back">"First, you need to wash the vegetables."</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- SECTION 9: REVIEW GAME -->
-        <section id="section-9">
-            <h2>🎮 8. Quick Quiz Game</h2>
-            <p class="instruction">Test your memory! Click the right answer.</p>
+        <div class="section-block" id="sec6">
+            <h2>6. Game Time! 🎮</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Let's see if you remember the new kitchen words!</p>
             
-            <div id="game-container">
-                <h3 id="game-question" class="kid-font" style="color: white; margin-bottom: 25px; font-size: 1.8rem; line-height: 1.4;">Ready to play?</h3>
-                <div id="game-options">
-                    <button class="btn-secondary" style="font-size: 1.4rem; padding: 18px 40px; border-radius: 30px;" onclick="startGame()">Start Game 🏁</button>
+            <div id="quiz-container" style="background: #FFFBEB; padding: 30px; border-radius: 24px; border: 4px solid #FDE047;">
+                
+                <div id="q1" class="quiz-question active">
+                    <h3 style="color: var(--primary);">1. What do we call a person who cooks food as their job?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">A. An Ingredient</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q1')">B. A Chef</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">C. A Recipe</button>
+                    </div>
                 </div>
-                <p id="game-score" style="margin-top: 25px; font-weight: bold; font-size: 1.4rem; display: none; color: var(--secondary-light);">Score: 0 / 5</p>
-            </div>
-        </section>
 
-        <!-- SECTION 10 & 11: REFLECTION & PROGRESS -->
-        <section id="section-10">
-            <h2>✅ 9. My Progress Checklist</h2>
-            <p class="instruction">Click the boxes when you finish a task!</p>
+                <div id="q2" class="quiz-question">
+                    <h3 style="color: var(--primary);">2. If a food has a hot flavor that burns your mouth, it is...</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q2')">A. Spicy</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">B. Sweet</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">C. Healthy</button>
+                    </div>
+                </div>
+
+                <div id="q3" class="quiz-question">
+                    <h3 style="color: var(--primary);">3. What word means "sweet food eaten at the end of a meal"?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">A. Order</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">B. Breakfast</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q3')">C. Dessert</button>
+                    </div>
+                </div>
+
+                <div id="quiz-end" class="quiz-question" style="text-align: center; padding: 20px;">
+                    <h3 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 20px;">🎉 YOU WIN!</h3>
+                    <button class="btn-yellow" onclick="resetQuiz()">Play Again 🔄</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section-block" id="sec7">
+            <h2>7. How did I do? 🪞</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 700; font-size: 1.2rem;">Click the emoji that shows how you feel!</p>
             
-            <ul class="tracker-list">
-                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I joined the warm-up and spoke! 🗣️</li>
-                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I learned new vocabulary words. 📚</li>
-                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I used the word "because". 🔗</li>
-                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I talked with my partner in the role-play. 👥</li>
-                <li><input type="checkbox" class="tracker-checkbox" onchange="updateProgress()"> I tried my best today! ⭐</li>
-            </ul>
-
-            <h3 style="margin-top: 35px;">My Reflection Emoji:</h3>
-            <p class="instruction">Click the emoji that matches how you feel today!</p>
-            <div class="emoji-selector" style="font-size: 3.5rem; cursor: pointer; display: flex; gap: 30px; justify-content: flex-start; margin-top: 15px;">
-                <span onclick="setReflectionMessage('Awesome! You did great! 🤩')">🤩</span>
-                <span onclick="setReflectionMessage('Good job! Keep practicing! 😊')">😊</span>
-                <span onclick="setReflectionMessage('It\'s okay! We will practice more next time! 🤔')">🤔</span>
+            <div class="reflection-q">
+                <span style="font-weight: 800; font-size: 1.25rem; color: var(--text-main);">1. Was I confident speaking English today?</span>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
+                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
+                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
+                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
+                </div>
             </div>
-            <div id="reflection-msg" style="margin-top: 20px; font-size: 1.3rem; font-weight: bold; color: var(--primary); min-height: 30px;"></div>
-        </section>
-
-        <!-- SECTION 12: TEACHER SUPPORT -->
-        <section id="section-12">
-            <h2>🧑‍🏫 Teacher Support Box</h2>
-            <div class="teacher-box">
-                <h4 style="color: #B45309; font-size: 1.2rem; margin-bottom: 10px;">Common Student Problems (Kids A1-A2):</h4>
-                <ul style="margin-left: 20px; font-size: 1.05rem; margin-bottom: 25px; line-height: 1.8;">
-                    <li><strong>Very short answers:</strong> Students might just say "Dog" instead of "I like dogs."</li>
-                    <li><strong>Forgot vocabulary:</strong> Kids easily forget verbs like "hunt" or "protect".</li>
-                    <li><strong>Pronunciation:</strong> Words like "dangerous" (3 syllables) can be tricky.</li>
-                </ul>
-
-                <h4 style="color: #B45309; font-size: 1.2rem; margin-bottom: 10px;">Gentle Correction Phrases:</h4>
-                <ul style="margin-left: 20px; font-size: 1.05rem; line-height: 1.8;">
-                    <li><em>"Good idea! Can you make a full sentence? 'My favorite is...'"</em></li>
-                    <li><em>"That's right! Now, add a reason. Use 'because'."</em></li>
-                    <li><em>"Great vocabulary! Let's say it together: dan-ger-ous."</em></li>
-                </ul>
+            <div class="reflection-q">
+                <span style="font-weight: 800; font-size: 1.25rem; color: var(--text-main);">2. Did I learn new food words?</span>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
+                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
+                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
+                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
+                </div>
             </div>
-        </section>
+            <div class="reflection-q">
+                <span style="font-weight: 800; font-size: 1.25rem; color: var(--text-main);">3. Did I speak loudly and clearly?</span>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
+                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
+                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
+                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
+                </div>
+            </div>
+            <div class="reflection-q">
+                <span style="font-weight: 800; font-size: 1.25rem; color: var(--text-main);">4. Did I give long answers?</span>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
+                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
+                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
+                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
+                </div>
+            </div>
+            <div class="reflection-q">
+                <span style="font-weight: 800; font-size: 1.25rem; color: var(--text-main);">5. Did I have fun in class today?</span>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)" title="Not really">🙁</span>
+                    <span onclick="selectEmoji(this)" title="It was okay">😐</span>
+                    <span onclick="selectEmoji(this)" title="Good">🙂</span>
+                    <span onclick="selectEmoji(this)" title="Excellent!">🤩</span>
+                </div>
+            </div>
+        </div>
 
-        <!-- SECTION 13: HOMEWORK -->
-        <section id="section-13">
-            <h2>🏠 Homework / Self-Practice</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 15px;">Practice makes perfect! Here is your homework for next week:</p>
+        <div class="section-block" id="sec8" style="background: #FEF3C7; border: 4px dashed var(--secondary);">
+            <h2>8. Finish Line! 🏁</h2>
+            <p style="margin-bottom: 25px; color: var(--text-main); font-weight: 700; font-size: 1.2rem;">Tick the boxes to fill up your golden progress bar!</p>
             
-            <div class="copy-box" id="hw-text">Homework: Super Animals! 🐾
-
-1. Draw your favorite animal.
-2. Write 3 sentences about it:
-   - What is it?
-   - What does it look like? (colors, body parts)
-   - What can it do? (run, climb, swim)
-3. Be ready to show your drawing and read your sentences in the next class!</div>
-            <button class="btn-primary" style="margin-top: 10px;" onclick="copyText('hw-text')">📋 Copy Homework for Chat</button>
-        </section>
+            <div class="checklist-item">
+                <input type="checkbox" id="chk1" onchange="updateProgress()">
+                <label for="chk1">I answered the Warm-up</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="chk2" onchange="updateProgress()">
+                <label for="chk2">I learned the Kitchen Words</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="chk3" onchange="updateProgress()">
+                <label for="chk3">I answered Speaking Questions</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="chk4" onchange="updateProgress()">
+                <label for="chk4">I did the Restaurant Role-play</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="chk5" onchange="updateProgress()">
+                <label for="chk5">I won the Word Game</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="chk6" onchange="updateProgress()">
+                <label for="chk6">I chose my Emojis</label>
+            </div>
+        </div>
 
     </div>
 
-    <!-- COPYRIGHT FOOTER -->
-    <footer class="lesson-footer">
-        <h3>Lucero English System</h3>
-        <p>© 2026 Hệ thống Anh Ngữ Lucero. All rights reserved.</p>
-        <p style="margin-top: 5px;">Curriculum Developer & Author: Mr. Lucero</p>
+    <footer class="brand-footer">
+        <p><strong>Bản quyền thuộc về Hệ thống Anh Ngữ Lucero</strong></p>
+        <p>Lucero English System | Tác giả biên soạn <strong>Mr. Lucero</strong></p>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- Custom Audio/Notification Toast -->
+    <div id="toast">Notification text</div>
+
+    <!-- Celebration Modal -->
+    <div class="modal-overlay" id="completion-modal">
+        <div class="modal-content">
+            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">👨‍🍳 MASTER CHEF! 👩‍🍳</h2>
+            <p style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 30px; font-weight: 800; font-family: var(--font-headings);">You completed the whole lesson. You are amazing! ⭐⭐⭐</p>
+            <button class="btn-yellow" onclick="closeModal()" style="font-size: 1.5rem; padding: 15px 40px;">YAY!</button>
+        </div>
+    </div>
+
     <script>
-        // Custom Toast Notification (Replaces alert)
-        function showToast(message) {
-            const toast = document.getElementById('toast-container');
-            toast.innerText = message;
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
+        // Custom Toast System
+        function showToast(msg) {
+            const toastElement = document.getElementById("toast");
+            toastElement.innerHTML = msg;
+            toastElement.className = "show";
+            setTimeout(function(){ 
+                toastElement.className = toastElement.className.replace("show", ""); 
             }, 3000);
         }
 
-        // Toggle Hidden Content
-        function toggleReveal(id) {
+        // Web Speech API for TTS Audio
+        function playAudioToast(word) {
+            showToast(`🔊 <strong>Listen:</strong> ${word}`);
+            
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US'; 
+                utterance.rate = 0.8; 
+                utterance.pitch = 1.3; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.log("TTS not supported.");
+            }
+        }
+
+        // Modal System
+        function showModal() {
+            document.getElementById('completion-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('completion-modal').classList.remove('active');
+        }
+
+        // Toggle simple content (used for simple text boxes)
+        function toggleContent(id) {
             const el = document.getElementById(id);
-            if (el.classList.contains('show')) {
-                el.classList.remove('show');
+            if (el.style.display === "block") {
+                el.style.display = "none";
             } else {
-                el.classList.add('show');
+                el.style.display = "block";
             }
         }
 
-        // Progress Tracker
+        // New toggle function specifically for the chat bubble container
+        function toggleChat(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "flex") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "flex";
+            }
+        }
+
+        // Accordion Logic
+        function toggleAccordion(element) {
+            const body = element.nextElementSibling;
+            if (body.classList.contains('active')) {
+                body.classList.remove('active');
+            } else {
+                body.classList.add('active');
+            }
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, isCorrect, currentQId) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('.quiz-btn');
+            
+            buttons.forEach(b => b.disabled = true);
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                setTimeout(() => nextQuestion(currentQId), 1200);
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    if (b.getAttribute('onclick').includes('true')) {
+                        b.classList.add('correct');
+                    }
+                });
+                setTimeout(() => nextQuestion(currentQId), 2500);
+            }
+        }
+
+        function nextQuestion(currentQId) {
+            const currentQ = document.getElementById(currentQId);
+            currentQ.classList.remove('active');
+            
+            if (currentQId === 'q1') document.getElementById('q2').classList.add('active');
+            else if (currentQId === 'q2') document.getElementById('q3').classList.add('active');
+            else if (currentQId === 'q3') document.getElementById('quiz-end').classList.add('active');
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-end').classList.remove('active');
+            document.getElementById('q1').classList.add('active');
+            
+            const buttons = document.querySelectorAll('.quiz-btn');
+            buttons.forEach(b => {
+                b.classList.remove('correct', 'wrong');
+                b.disabled = false;
+            });
+        }
+
+        // Emoji Reflection Logic
+        function selectEmoji(element) {
+            const parent = element.parentElement;
+            const emojis = parent.querySelectorAll('span');
+            emojis.forEach(e => e.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        // Progress Tracker Logic
         function updateProgress() {
-            const checkboxes = document.querySelectorAll('.tracker-checkbox');
+            const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+            const total = checkboxes.length;
             let checkedCount = 0;
-            checkboxes.forEach(box => {
-                if(box.checked) checkedCount++;
-            });
-            const percentage = Math.round((checkedCount / checkboxes.length) * 100);
             
-            document.getElementById('progress-bar').style.width = percentage + '%';
+            checkboxes.forEach(chk => {
+                if(chk.checked) checkedCount++;
+            });
+
+            const percentage = Math.round((checkedCount / total) * 100);
+            
+            document.getElementById('top-progress').style.width = percentage + '%';
             document.getElementById('progress-text').innerText = percentage + '%';
-        }
-
-        // Set Reflection Message
-        function setReflectionMessage(msg) {
-            document.getElementById('reflection-msg').innerText = msg;
-            showToast("Reflection saved!");
-        }
-
-        // Copy Text Function
-        function copyText(id) {
-            const textToCopy = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                showToast("✅ Homework copied to clipboard!");
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                showToast("❌ Failed to copy text.");
-            });
-        }
-
-        // Quiz Game Logic
-        const quizData = [
-            {
-                question: "Which word means 'covered with very soft hair'?",
-                options: ["Wild", "Fluffy", "Dangerous"],
-                correct: 1
-            },
-            {
-                question: "Which animal is a 'wild' animal?",
-                options: ["Tiger", "Pet Dog", "Goldfish"],
-                correct: 0
-            },
-            {
-                question: "Finish the sentence: 'I like cats ________ they are cute.'",
-                options: ["and", "but", "because"],
-                correct: 2
-            },
-            {
-                question: "What does a monkey do in a tree?",
-                options: ["Swim", "Climb", "Fly"],
-                correct: 1
-            },
-            {
-                question: "Which word means 'to keep safe'?",
-                options: ["Hunt", "Protect", "Scary"],
-                correct: 1
-            }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-
-        function startGame() {
-            currentQuestion = 0;
-            score = 0;
-            document.getElementById('game-score').style.display = 'block';
-            showQuestion();
-        }
-
-        function showQuestion() {
-            document.getElementById('game-score').innerText = `Score: ${score} / ${quizData.length}`;
             
-            if (currentQuestion >= quizData.length) {
-                endGame();
-                return;
+            if (percentage === 100) {
+                setTimeout(() => {
+                    showModal();
+                }, 600);
             }
-
-            const q = quizData[currentQuestion];
-            document.getElementById('game-question').innerText = `${currentQuestion + 1}. ${q.question}`;
-            
-            let optionsHTML = '';
-            q.options.forEach((opt, index) => {
-                optionsHTML += `<button class="game-option" onclick="checkAnswer(${index})">${opt}</button>`;
-            });
-            document.getElementById('game-options').innerHTML = optionsHTML;
-        }
-
-        function checkAnswer(selectedIndex) {
-            const q = quizData[currentQuestion];
-            const buttons = document.querySelectorAll('.game-option');
-            
-            // Disable all buttons after click
-            buttons.forEach(btn => btn.disabled = true);
-
-            if (selectedIndex === q.correct) {
-                buttons[selectedIndex].classList.add('correct');
-                score++;
-            } else {
-                buttons[selectedIndex].classList.add('wrong');
-                buttons[q.correct].classList.add('correct'); // Show correct answer
-            }
-
-            setTimeout(() => {
-                currentQuestion++;
-                showQuestion();
-            }, 1500);
-        }
-
-        function endGame() {
-            let message = "Great job! 🌟";
-            if (score === 5) message = "Perfect Score! 🏆 You are an Animal Expert!";
-            if (score < 3) message = "Good try! Let's review the vocabulary again. 💪";
-
-            document.getElementById('game-question').innerText = message;
-            document.getElementById('game-options').innerHTML = `<button class="btn-secondary" style="font-size: 1.3rem; padding: 15px 30px; border-radius: 30px;" onclick="startGame()">Play Again 🔄</button>`;
-            document.getElementById('game-score').innerText = `Final Score: ${score} / ${quizData.length}`;
         }
     </script>
 </body>
