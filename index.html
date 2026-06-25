@@ -3,918 +3,1123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: Sports and Games</title>
+    <title>ESL Lesson: How I Learn New Things</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
         :root {
-            --bg-color: #f0fdfa; /* Soft mint/cyan background */
-            --text-main: #1e293b;
-            --text-light: #475569;
-            --primary: #0ea5e9; /* Cheerful Blue */
-            --primary-hover: #0284c7;
-            --secondary: #f59e0b; /* Energetic Orange */
-            --secondary-hover: #d97706;
-            --accent: #10b981; /* Field Green */
-            --card-bg: #ffffff;
-            --border-radius: 24px; /* Extra rounded for kids */
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #4DA8DA;
+            --primary-dark: #2980B9;
+            --secondary: #6EE7B7;
+            --secondary-dark: #059669;
+            --accent: #FFB347;
+            --accent-dark: #E67E22;
+            --bg-light: #F0F9FF;
+            --bg-pattern: #E0F2FE;
+            --text-dark: #334155;
+            --text-light: #64748B;
+            --white: #FFFFFF;
+            --success: #A7F3D0;
+            --error: #FECACA;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --border-radius: 24px;
+            --border-thickness: 4px;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Nunito', 'Segoe UI', 'Comic Sans MS', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Fredoka', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg-light);
+            background-image: radial-gradient(var(--bg-pattern) 3px, transparent 3px), radial-gradient(var(--bg-pattern) 3px, transparent 3px);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: var(--text-dark);
             line-height: 1.6;
-            font-size: 1.3rem; /* Extra large base font for Zoom & kids */
-            padding-bottom: 60px;
+            font-size: 20px;
             overflow-x: hidden;
-            word-wrap: break-word;
         }
 
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 14px;
-            background-color: #e2e8f0;
-            z-index: 1000;
+        header {
+            background: linear-gradient(135deg, var(--primary), #93C5FD);
+            color: var(--white);
+            padding: 50px 20px 60px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 0 #3BA0CE;
+            position: relative;
+            margin-bottom: 40px;
         }
 
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-            transition: width 0.6s ease-out;
-            border-radius: 0 7px 7px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; text-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; text-align: center; font-weight: 700;}
+        h3 { font-size: 1.6rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 600;}
+
+        .brand-badge {
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: #FEF3C7;
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 0 #F59E0B;
+            border: 2px solid #F59E0B;
+            font-size: 1.1rem;
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
         }
+        .brand-badge:hover { transform: rotate(2deg) scale(1.05); }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 0 20px 40px;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-top: 2rem;
+        .progress-tracker {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: -50px;
+            box-shadow: var(--card-shadow);
+            border: var(--border-thickness) solid var(--primary);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            z-index: 10;
+            position: relative;
         }
-
-        h1 {
-            font-size: 3.5rem;
-            color: var(--primary-hover);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            font-weight: 800;
-            text-shadow: 2px 2px 0px #bae6fd;
-        }
-
-        .objectives-card {
-            background-color: #fffbeb;
-            border: 4px dashed var(--secondary);
-            padding: 2rem;
-            border-radius: 24px;
-            text-align: left;
-            margin: 0 auto 2rem auto;
-            max-width: 750px;
-            font-size: 1.35rem;
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+        .progress-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            color: var(--text-main);
-            border-bottom: 4px solid #cbd5e1;
-            padding-bottom: 10px;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            background: var(--bg-light);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+        .progress-item:hover {
+            transform: translateY(-3px);
+            background: #E0F2FE;
+        }
+        .progress-item.completed {
+            background: var(--success);
+            color: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+            font-weight: 700;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        @media(min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; }
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 2rem;
+        .objectives {
+            background: #FFFBEB;
             border-radius: var(--border-radius);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-            transition: var(--transition);
-            border: 3px solid #f1f5f9;
+            padding: 25px;
+            margin: 40px 0;
+            border: var(--border-thickness) solid var(--accent);
+            box-shadow: 0 8px 0 rgba(255, 179, 71, 0.3);
         }
-        .card:hover {
-            box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.2);
-            transform: translateY(-5px);
-            border-color: #bae6fd;
+        .objectives ul { list-style: none; padding-left: 10px; }
+        .objectives li { margin-bottom: 12px; font-weight: 500; font-size: 1.1rem;}
+        .objectives li::before { content: '🎯 '; font-size: 1.2rem;}
+
+        section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 35px;
+            margin-bottom: 50px;
+            box-shadow: var(--card-shadow);
+            border: 2px solid #E2E8F0;
+            position: relative;
         }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tag-easy { background: #DCFCE7; color: #166534; border: 2px solid #166534; }
+        .tag-medium { background: #FEF3C7; color: #92400E; border: 2px solid #92400E; }
+        .tag-opinion { background: #F3E8FF; color: #6B21A8; border: 2px solid #6B21A8; }
 
         button {
+            background: var(--primary);
+            color: var(--white);
             border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: 800;
-            border-radius: 9999px;
-            padding: 0.8rem 1.8rem;
-            transition: var(--transition);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            text-align: center;
+            box-shadow: 0 6px 0 var(--primary-dark);
+            outline: none;
+            margin-bottom: 6px; /* Space for shadow */
         }
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 6px rgba(14, 165, 233, 0.3);
-            border: 2px solid var(--primary-hover);
+        button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
-        .btn-primary:hover { background-color: var(--primary-hover); transform: scale(1.05); }
-        
-        .btn-outline {
-            background-color: #f8fafc;
-            border: 3px solid var(--primary);
-            color: var(--primary-hover);
+        button:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--primary-dark);
         }
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
+        button.btn-secondary { background: var(--secondary); color: var(--secondary-dark); box-shadow: 0 6px 0 #047857; }
+        button.btn-secondary:active { box-shadow: 0 2px 0 #047857; }
+        button.btn-accent { background: var(--accent); color: #78350F; box-shadow: 0 6px 0 #D97706; }
+        button.btn-accent:active { box-shadow: 0 2px 0 #D97706; }
+        button.btn-outline { background: var(--bg-light); border: 2px solid var(--primary); color: var(--primary-dark); box-shadow: 0 4px 0 var(--primary); padding: 10px 15px;}
+        button.btn-outline:active { box-shadow: 0 0px 0 var(--primary); transform: translateY(4px); }
 
-        .btn-small {
-            padding: 0.6rem 1.3rem;
-            font-size: 1.1rem;
-        }
-
-        .section-complete-btn {
-            display: block;
-            margin: 3rem auto 0 auto;
-            background-color: #cbd5e1;
-            border-color: #94a3b8;
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.4rem;
-            box-shadow: none;
-        }
-        .section-complete-btn.completed {
-            background-color: var(--secondary);
-            border-color: var(--secondary-hover);
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
-            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.9); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        .hidden-content {
+        .expandable-content {
             display: none;
-            margin-top: 1.5rem;
-            padding: 1.2rem;
-            background-color: #f0f9ff;
-            border-radius: 16px;
-            animation: slideDown 0.3s ease-out;
-            font-size: 1.25rem;
-            border-left: 6px solid var(--accent);
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 18px;
+            background: #F8FAFC;
+            animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px dashed #CBD5E1;
         }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .show { display: block; }
-
-        .vocab-word {
-            font-size: 1.9rem;
-            font-weight: 800;
-            color: var(--primary-hover);
-            margin-bottom: 0.8rem;
-        }
+        .expandable-content.active { display: block; }
         
-        .question-card {
-            margin-bottom: 2rem;
-        }
-        .question-text {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: #0f172a;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            font-size: 1.1rem;
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid transparent;
-        }
-        .badge.easy { background-color: #dcfce7; color: #166534; border-color: #86efac; }
-        .badge.medium { background-color: #fef08a; color: #854d0e; border-color: #fde047; }
-        .badge.opinion { background-color: #fee2e2; color: #991b1b; border-color: #fca5a5; }
-
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 1.5rem;
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(-10px); }
+            50% { opacity: 1; transform: scale(1.02) translateY(2px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .flashcard-grid {
+        .vocab-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
         }
+        .vocab-card {
+            background: var(--white);
+            padding: 25px 20px;
+            border-radius: 24px;
+            text-align: center;
+            border: var(--border-thickness) solid var(--primary);
+            box-shadow: 0 8px 0 rgba(74, 144, 226, 0.2);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 12px 0 rgba(74, 144, 226, 0.3); }
+        .vocab-card button { margin: 5px; font-size: 0.95rem; padding: 8px 16px;}
+        .vocab-word { font-size: 1.8rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; }
+        .vocab-def { font-size: 1.1rem; color: var(--text-light); margin-bottom: 20px; font-weight: 500;}
+
+        .question-block {
+            border-bottom: 3px dotted #E2E8F0;
+            padding: 30px 0;
+        }
+        .question-block:last-child { border-bottom: none; }
+        .question-text { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; color: var(--text-dark);}
+        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .idea-list { list-style-type: '💡 '; padding-left: 20px; margin-bottom: 10px; font-weight: 500;}
+        .idea-list li { margin-bottom: 8px; }
+        .answer-box { background: #ECFDF5; padding: 15px 20px; border-radius: 16px; margin-bottom: 10px; border-left: 6px solid var(--secondary); font-size: 1.1rem; color: #065F46; font-weight: 500;}
+        
+        .roleplay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .roleplay-card { background: #FFFBEB; padding: 25px; border-radius: 24px; border: var(--border-thickness) solid var(--accent); box-shadow: 0 6px 0 rgba(255, 179, 71, 0.3);}
+
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .flashcard {
-            background: linear-gradient(135deg, var(--primary), #38bdf8);
-            color: white;
+            perspective: 1000px;
             height: 140px;
+            cursor: pointer;
+        }
+        .flashcard-inner {
+            position: relative;
+            width: 100%; height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%; height: 100%;
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             border-radius: 20px;
-            cursor: pointer;
-            font-size: 1.4rem;
-            font-weight: 800;
-            transition: transform 0.3s, background 0.3s;
-            padding: 1.5rem;
-            box-shadow: 0 6px 12px rgba(14, 165, 233, 0.2);
-            border: 3px solid #0284c7;
+            padding: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: var(--border-thickness) solid transparent;
         }
-        .flashcard:hover { transform: translateY(-8px) scale(1.02); }
+        .flashcard-front { background: var(--primary); color: white; border-color: var(--primary-dark); box-shadow: 0 6px 0 var(--primary-dark);}
+        .flashcard-back { background: var(--secondary); color: var(--secondary-dark); border-color: #047857; box-shadow: 0 6px 0 #047857; transform: rotateY(180deg); }
 
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        @media(min-width: 768px) {
-            .game-container { flex-direction: row; }
-        }
-        .game-col { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+        .game-container { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+        .game-col { display: flex; flex-direction: column; gap: 15px; flex: 1; min-width: 250px; }
         .game-btn {
-            background-color: white;
-            border: 4px solid #e2e8f0;
-            color: var(--text-main);
-            padding: 1.2rem;
-            border-radius: 20px;
-            text-align: left;
-            font-weight: 800;
-            font-size: 1.3rem;
-            transition: all 0.2s;
+            background: var(--white); border: 3px solid #CBD5E1; color: var(--text-dark);
+            width: 100%; text-align: center; justify-content: center; font-weight: 500; font-size: 1.1rem;
+            box-shadow: 0 4px 0 #CBD5E1;
         }
-        .game-btn:hover { border-color: var(--primary); transform: translateX(5px); }
-        .game-btn.selected { border-color: var(--primary); background-color: #f0f9ff; transform: scale(1.02); }
-        .game-btn.matched { border-color: var(--accent); background-color: #dcfce7; color: #166534; pointer-events: none; opacity: 0.9; }
-        .game-btn.wrong { border-color: #ef4444; background-color: #fee2e2; animation: shake 0.5s; }
+        .game-btn.selected { border-color: var(--primary); background: #EFF6FF; transform: scale(1.02) translateY(2px); box-shadow: 0 2px 0 var(--primary); color: var(--primary-dark); font-weight: 700;}
+        .game-btn.matched { background: var(--success); border-color: var(--secondary-dark); color: var(--secondary-dark); pointer-events: none; opacity: 0.9; box-shadow: 0 2px 0 var(--secondary-dark); transform: translateY(2px);}
+        .game-btn.wrong { background: var(--error); border-color: #B91C1C; color: #7F1D1D; animation: shake 0.4s; box-shadow: 0 4px 0 #B91C1C;}
 
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            50% { transform: translateX(8px); }
+            75% { transform: translateX(-8px); }
+            100% { transform: translateX(0); }
         }
 
-        .checklist-item {
+        .reflection-item {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #F8FAFC; padding: 20px 25px; border-radius: 20px; margin-bottom: 15px;
+            border: 2px solid #E2E8F0;
+        }
+        .emoji-rating span { font-size: 2rem; cursor: pointer; transition: transform 0.2s; margin-left: 15px; filter: grayscale(100%); opacity: 0.6;}
+        .emoji-rating span:hover { transform: scale(1.3) rotate(5deg); opacity: 0.8;}
+        .emoji-rating span.selected { filter: grayscale(0%); transform: scale(1.4); opacity: 1;}
+
+        /* Custom Toast Notification */
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+        .toast {
+            background: var(--primary-dark);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: slideUpFade 0.4s ease-out forwards;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-            padding: 15px;
-            border-radius: 16px;
-            transition: background-color 0.2s;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
+            gap: 10px;
+            border: 2px solid #fff;
         }
-        .checklist-item:hover { background-color: #f1f5f9; border-color: #cbd5e1; }
-        input[type="checkbox"] {
-            width: 35px;
-            height: 35px;
-            accent-color: var(--secondary);
-            cursor: pointer;
+        .toast.fade-out {
+            animation: fadeOutDown 0.4s ease-in forwards;
         }
 
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .modal-content {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 30px;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-            animation: modalIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 5px solid var(--secondary);
+        @keyframes fadeOutDown {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(20px); }
         }
-        @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.7) translateY(30px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .modal-emoji { font-size: 4rem; margin-bottom: 1rem; }
-        .modal-title { font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary); font-weight: 800; }
-        .modal-text { font-size: 1.4rem; margin-bottom: 2rem; color: var(--text-light); }
 
-        footer {
+        .footer {
             text-align: center;
-            padding: 3rem;
-            margin-top: 5rem;
-            border-top: 4px dashed #cbd5e1;
+            padding: 30px 20px;
+            margin-top: 40px;
             color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 700;
-            background-color: #ffffff;
-            border-radius: 30px;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.02);
+            font-size: 1.1rem;
+            border-top: 3px dashed #CBD5E1;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
         }
-        .copyright-highlight { color: var(--primary-hover); font-size: 1.3rem; font-weight: 800; }
+        .footer p { margin-bottom: 5px; }
+        .footer span.brand { color: var(--primary-dark); font-weight: 700; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .action-buttons { flex-direction: column; }
+            button { width: 100%; justify-content: center; }
+            .reflection-item { flex-direction: column; text-align: center; gap: 15px; }
+            .vocab-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
+    <header>
+        <h1>🌟 How I Learn New Things!</h1>
+        <p style="font-size: 1.2rem; font-weight: 500;">An interactive English Speaking Adventure for Kids</p>
+        <div class="brand-badge">ELS - English Lucero System</div>
+    </header>
 
     <div class="container">
-        <header>
-            <h1>⚽ Sports & Fun Games! 🏀</h1>
-            <p style="font-size: 1.6rem; color: var(--text-light); font-weight: 700;">A fun speaking lesson for Kids (A1 - B1)</p>
-            
-            <div class="objectives-card" style="margin-top: 2rem;">
-                <h3 style="margin-bottom: 1rem; color: var(--secondary-hover); font-size: 1.8rem; font-weight: 900;">🎯 What will we learn today?</h3>
-                <ul style="margin-left: 2rem; list-style-type: disc;">
-                    <li style="margin-bottom: 10px;">Learn cool action words and sports vocabulary.</li>
-                    <li style="margin-bottom: 10px;">Talk about your favorite games and sports.</li>
-                    <li>Share how you feel about winning, losing, and playing with friends!</li>
-                </ul>
-            </div>
-        </header>
+        <!-- Progress Tracker -->
+        <div class="progress-tracker" id="tracker">
+            <div class="progress-item" onclick="toggleProgress(this)">1. Warm-up 🏁</div>
+            <div class="progress-item" onclick="toggleProgress(this)">2. Vocab 📚</div>
+            <div class="progress-item" onclick="toggleProgress(this)">3. Speaking 🗣️</div>
+            <div class="progress-item" onclick="toggleProgress(this)">4. Roleplay 🎭</div>
+            <div class="progress-item" onclick="toggleProgress(this)">5. Fluency ⚡</div>
+            <div class="progress-item" onclick="toggleProgress(this)">6. Review 🎮</div>
+        </div>
 
+        <!-- Learning Objectives -->
+        <div class="objectives">
+            <h3>Today's Mission Goals:</h3>
+            <ul>
+                <li>Learn and use fun vocabulary about studying and habits.</li>
+                <li>Talk fluently about how you like to learn (watching, reading, doing).</li>
+                <li>Share your own opinions clearly and confidently.</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 1: WARM-UP -->
         <section id="section-1">
-            <h2>🔥 1. Let's Warm Up!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Time to talk! Answer these fun questions. Click the button to see a cool example.</p>
+            <h2>1. Warm-Up Chats 🎈</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">Let's get our brains ready! Answer the questions below.</p>
             
-            <div class="grid-2">
-                <div class="card">
-                    <p class="question-text">⚽ What is your favorite sport to watch or play?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu1')">See Example 👀</button>
-                    <div id="wu1" class="hidden-content">
-                        <em>"My favorite sport is football! I love kicking the ball really far."</em>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="question-text">☀️ Do you like playing inside or outside better?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu2')">See Example 👀</button>
-                    <div id="wu2" class="hidden-content">
-                        <em>"I like playing outside because I can run very fast!"</em>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="question-text">🏃‍♂️ Who do you usually play games with?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu3')">See Example 👀</button>
-                    <div id="wu3" class="hidden-content">
-                        <em>"I usually play games with my brother and my best friend."</em>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="question-text">📺 Do you watch any sports on TV?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu4')">See Example 👀</button>
-                    <div id="wu4" class="hidden-content">
-                        <em>"Yes, sometimes I watch basketball with my dad on Sundays."</em>
-                    </div>
-                </div>
-                <div class="card">
-                    <p class="question-text">🏓 Do you have any sports equipment at home (like a ball, bat, or bike)?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu5')">See Example 👀</button>
-                    <div id="wu5" class="hidden-content">
-                        <em>"Yes, I have a red bicycle and a basketball in my garage."</em>
-                    </div>
+            <div class="question-block">
+                <div class="question-text">1. What is your absolute favorite subject at school? 🏫</div>
+                <button onclick="toggleBox(this, 's1-q1')">Show Example 👀</button>
+                <div class="expandable-content" id="s1-q1">
+                    <div class="answer-box"><em>"I love Science because we get to do fun experiments!"</em></div>
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(1, this)">Mark Section Complete ✓</button>
+            
+            <div class="question-block">
+                <div class="question-text">2. Do you like learning new things? Why or why not? 🧐</div>
+                <button onclick="toggleBox(this, 's1-q2')">Show Example 👀</button>
+                <div class="expandable-content" id="s1-q2">
+                    <div class="answer-box"><em>"Yes, I do! It is very fun to know things that I didn't know yesterday."</em></div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">3. Who usually helps you with your homework? 👨‍👩‍👧‍👦</div>
+                <button onclick="toggleBox(this, 's1-q3')">Show Example 👀</button>
+                <div class="expandable-content" id="s1-q3">
+                    <div class="answer-box"><em>"My mom usually helps me, especially with Math."</em></div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">4. Where is your favorite place to study? 🛋️</div>
+                <button onclick="toggleBox(this, 's1-q4')">Show Example 👀</button>
+                <div class="expandable-content" id="s1-q4">
+                    <div class="answer-box"><em>"I like to study at the kitchen table so I can eat snacks."</em></div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">5. Do you prefer reading books or watching videos to learn? 📺📚</div>
+                <button onclick="toggleBox(this, 's1-q5')">Show Example 👀</button>
+                <div class="expandable-content" id="s1-q5">
+                    <div class="answer-box"><em>"I prefer watching videos because they show me exactly how to do it."</em></div>
+                </div>
+            </div>
         </section>
 
+        <!-- SECTION 2: VOCABULARY -->
         <section id="section-2">
-            <h2>📚 2. Cool Sports Words!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Let's learn these sports words. Click the button to see how to use them!</p>
-
-            <div class="grid-2">
-                <div class="card">
-                    <div class="vocab-word">1. To kick (verb) 🦵</div>
-                    <p>To hit a ball hard with your foot.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v1')">Example Sentence</button>
-                    <div id="v1" class="hidden-content"><em>"I like to <strong>kick</strong> the ball into the net!"</em></div>
+            <h2>2. Word Power! 📚</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">Learn these words to sound like a learning superstar.</p>
+            
+            <div class="vocab-grid">
+                <!-- Word 1 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Practice 🔁</div>
+                    <div class="vocab-def">Doing something again and again to get better.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-1')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Practice')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-1"><div class="answer-box"><em>"I practice playing the piano every afternoon."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">2. Team (noun) 🤝</div>
-                    <p>A group of people who play a sport together.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v2')">Example Sentence</button>
-                    <div id="v2" class="hidden-content"><em>"There are 11 players on a football <strong>team</strong>."</em></div>
+                <!-- Word 2 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Focus 🎯</div>
+                    <div class="vocab-def">To look at or think about one thing very carefully.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-2')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Focus')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-2"><div class="answer-box"><em>"I wear my headphones to help me focus on my reading."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">3. To score (verb) 💯</div>
-                    <p>To get a point or a goal in a game.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v3')">Example Sentence</button>
-                    <div id="v3" class="hidden-content"><em>"She is very fast and always <strong>scores</strong> points for us."</em></div>
+                <!-- Word 3 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Discover 🔭</div>
+                    <div class="vocab-def">To find something new that you didn't know before.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-3')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Discover')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-3"><div class="answer-box"><em>"We discovered a cool new insect in the garden today!"</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">4. Coach (noun) 🧢</div>
-                    <p>The teacher or boss of a sports team.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v4')">Example Sentence</button>
-                    <div id="v4" class="hidden-content"><em>"Our <strong>coach</strong> tells us to run fast and drink lots of water."</em></div>
+                <!-- Word 4 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Mistake ❌</div>
+                    <div class="vocab-def">Something you do wrong, which helps you learn.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-4')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Mistake')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-4"><div class="answer-box"><em>"It is okay to make a mistake when you are learning to ride a bike."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">5. Match (noun) 🏆</div>
-                    <p>A sports competition or game against another team.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v5')">Example Sentence</button>
-                    <div id="v5" class="hidden-content"><em>"We have a big tennis <strong>match</strong> on Saturday morning."</em></div>
+                <!-- Word 5 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Improve 📈</div>
+                    <div class="vocab-def">To get better at doing something.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-5')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Improve')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-5"><div class="answer-box"><em>"Reading every night helps me improve my English."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">6. To practice (verb) ⏱️</div>
-                    <p>To do something many times so you get better at it.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v6')">Example Sentence</button>
-                    <div id="v6" class="hidden-content"><em>"I need to <strong>practice</strong> swimming before the summer."</em></div>
+                <!-- Word 6 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Curious 🤔</div>
+                    <div class="vocab-def">Wanting to know more and asking lots of questions.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-6')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Curious')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-6"><div class="answer-box"><em>"I am very curious about how spaceships fly."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">7. Champion (noun) 🥇</div>
-                    <p>The person or team who wins the whole tournament.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v7')">Example Sentence</button>
-                    <div id="v7" class="hidden-content"><em>"My sister won a gold medal, she is a <strong>champion</strong>!"</em></div>
+                <!-- Word 7 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Memory 🧠</div>
+                    <div class="vocab-def">Your brain's ability to remember things from the past.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-7')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Memory')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-7"><div class="answer-box"><em>"Playing matching games is great for your memory."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">8. Referee (noun) 🦓</div>
-                    <p>The person who makes sure players follow the rules.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v8')">Example Sentence</button>
-                    <div id="v8" class="hidden-content"><em>"The <strong>referee</strong> blew the whistle to stop the game."</em></div>
+                <!-- Word 8 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Explain 🗣️</div>
+                    <div class="vocab-def">To talk about something clearly so friends understand.</div>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'v-8')">Sentence 📖</button>
+                    <button class="btn-outline" onclick="playAudio('Explain')">🔊 Listen</button>
+                    <div class="expandable-content" id="v-8"><div class="answer-box"><em>"Can you explain the rules of this game to me?"</em></div></div>
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(2, this)">Mark Section Complete ✓</button>
         </section>
 
+        <!-- SECTIONS 3, 4, 5: MAIN SPEAKING, IDEAS, ANSWERS -->
         <section id="section-3">
-            <h2>🗣️ 3. Time to Talk!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Take turns answering these questions. Use the buttons to get cool ideas or see example answers!</p>
+            <h2>3. Time to Speak! 🎙️</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">Try to answer these questions! Use the Idea Bank if you get stuck.</p>
 
-            <!-- Easy Questions -->
-            <div class="card question-card">
-                <span class="badge easy">Easy 🟢</span>
-                <p class="question-text">1. What is your absolute favorite sport to play?</p>
+            <!-- Q1 (Easy) -->
+            <div class="question-block">
+                <span class="tag tag-easy">Easy</span>
+                <div class="question-text">1. What is something new you learned how to do this week?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq1-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq1-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq1-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q1-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q1-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q1-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq1-idea" class="hidden-content"><strong>Ideas:</strong> Football, Basketball, Swimming, Badminton, Hide and Seek.</div>
-                <div id="sq1-short" class="hidden-content"><strong>Short:</strong> "My favorite sport is badminton."</div>
-                <div id="sq1-long" class="hidden-content"><strong>Long:</strong> "My favorite sport is badminton. I love hitting the shuttlecock over the net. It makes me feel very energetic!"</div>
+                <div class="expandable-content" id="q1-ideas">
+                    <ul class="idea-list">
+                        <li>A new English word</li>
+                        <li>A trick in a video game</li>
+                        <li>How to cook a small snack</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q1-ans-short">
+                    <div class="answer-box">"I learned how to say 'hello' in Spanish."</div>
+                </div>
+                <div class="expandable-content" id="q1-ans-long">
+                    <div class="answer-box">"This week, I learned how to bake chocolate chip cookies. My mom taught me. I made a mistake with the sugar, but they still tasted good!"</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge easy">Easy 🟢</span>
-                <p class="question-text">2. Do you prefer team sports or playing by yourself?</p>
+            <!-- Q2 (Easy) -->
+            <div class="question-block">
+                <span class="tag tag-easy">Easy</span>
+                <div class="question-text">2. What time of day do you learn best? Morning or night?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq2-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq2-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq2-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q2-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q2-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q2-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq2-idea" class="hidden-content"><strong>Ideas:</strong> Team is fun, working together / Alone is quiet, swimming, cycling.</div>
-                <div id="sq2-short" class="hidden-content"><strong>Short:</strong> "I prefer team sports because it's fun."</div>
-                <div id="sq2-long" class="hidden-content"><strong>Long:</strong> "I prefer team sports! I like playing football because I can pass the ball to my friends and we can win together as a team."</div>
+                <div class="expandable-content" id="q2-ideas">
+                    <ul class="idea-list">
+                        <li>Morning: Brain is fresh, lots of energy.</li>
+                        <li>Night: Very quiet, no distractions.</li>
+                        <li>Afternoon: After eating a good snack.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q2-ans-short">
+                    <div class="answer-box">"I learn best in the morning because I have lots of energy."</div>
+                </div>
+                <div class="expandable-content" id="q2-ans-long">
+                    <div class="answer-box">"I think I learn best at night before bed. The house is very quiet so I can easily focus on my reading. It helps my memory."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge easy">Easy 🟢</span>
-                <p class="question-text">3. What game do you usually play at break time in school?</p>
+            <!-- Q3 (Easy) -->
+            <div class="question-block">
+                <span class="tag tag-easy">Easy</span>
+                <div class="question-text">3. Do you like learning by yourself or with friends?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq3-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq3-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq3-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q3-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q3-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q3-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq3-idea" class="hidden-content"><strong>Ideas:</strong> Tag, Catch, skipping rope, playing on the swings, talking.</div>
-                <div id="sq3-short" class="hidden-content"><strong>Short:</strong> "At break time, I play tag."</div>
-                <div id="sq3-long" class="hidden-content"><strong>Long:</strong> "At break time, my friends and I always play tag in the school yard. It is really fun to run away and try not to get caught!"</div>
+                <div class="expandable-content" id="q3-ideas">
+                    <ul class="idea-list">
+                        <li>Friends: We can play games, it is funny.</li>
+                        <li>By myself: I can be fast, it is quiet.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q3-ans-short">
+                    <div class="answer-box">"I like learning with friends because it is fun."</div>
+                </div>
+                <div class="expandable-content" id="q3-ans-long">
+                    <div class="answer-box">"I prefer learning with friends. If I don't understand something, my friend can explain it to me. Also, we can practice together."</div>
+                </div>
             </div>
 
-            <!-- Medium Questions -->
-            <div class="card question-card">
-                <span class="badge medium">Medium 🟡</span>
-                <p class="question-text">4. Tell me about a time you won a game. How did you feel?</p>
+            <!-- Q4 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">4. How do you remember new English words?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq4-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq4-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq4-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q4-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q4-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q4-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq4-idea" class="hidden-content"><strong>Ideas:</strong> Board game, school race, happy, proud, jumped up and down.</div>
-                <div id="sq4-short" class="hidden-content"><strong>Short:</strong> "I won a running race last week and I felt very happy."</div>
-                <div id="sq4-long" class="hidden-content"><strong>Long:</strong> "Last month, my team won the football match at school. I scored the last goal! I felt so proud and my whole team jumped up and down."</div>
+                <div class="expandable-content" id="q4-ideas">
+                    <ul class="idea-list">
+                        <li>Write them down in a notebook.</li>
+                        <li>Use flashcards.</li>
+                        <li>Watch English cartoons.</li>
+                        <li>Say them out loud 5 times.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q4-ans-short">
+                    <div class="answer-box">"I write them in my notebook and read them."</div>
+                </div>
+                <div class="expandable-content" id="q4-ans-long">
+                    <div class="answer-box">"To remember new words, I make flashcards. I put the English word on one side and a drawing on the other. I practice them every day to improve my memory."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge medium">Medium 🟡</span>
-                <p class="question-text">5. What do you do when it is raining and you can't play outside?</p>
+            <!-- Q5 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">5. What do you do when you don't understand something at school?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq5-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq5-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq5-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q5-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q5-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q5-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq5-idea" class="hidden-content"><strong>Ideas:</strong> Play video games, board games (Monopoly), read, watch TV, build Lego.</div>
-                <div id="sq5-short" class="hidden-content"><strong>Short:</strong> "When it rains, I stay inside and play video games."</div>
-                <div id="sq5-long" class="hidden-content"><strong>Long:</strong> "If it's raining, I usually play board games with my family. Our favorite game is Monopoly. Sometimes I also just read a book in my room."</div>
+                <div class="expandable-content" id="q5-ideas">
+                    <ul class="idea-list">
+                        <li>Raise my hand and ask the teacher.</li>
+                        <li>Ask the friend sitting next to me.</li>
+                        <li>Search for it on the internet at home.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q5-ans-short">
+                    <div class="answer-box">"I usually raise my hand and ask my teacher."</div>
+                </div>
+                <div class="expandable-content" id="q5-ans-long">
+                    <div class="answer-box">"When I don't understand, I try not to panic. First, I read the instructions again. If I am still confused, I ask my teacher to explain it in a different way."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge medium">Medium 🟡</span>
-                <p class="question-text">6. Who is the best sports player you know? (Friend, family, or famous!)</p>
+            <!-- Q6 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">6. Do games help you learn? How?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq6-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq6-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq6-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q6-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q6-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q6-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq6-idea" class="hidden-content"><strong>Ideas:</strong> Messi, Ronaldo, my older brother, my dad, Steph Curry.</div>
-                <div id="sq6-short" class="hidden-content"><strong>Short:</strong> "The best player I know is Lionel Messi."</div>
-                <div id="sq6-long" class="hidden-content"><strong>Long:</strong> "The best player I know is my older brother. He plays basketball for his high school. He is very tall and practices every single day to get better."</div>
+                <div class="expandable-content" id="q6-ideas">
+                    <ul class="idea-list">
+                        <li>Games are not boring.</li>
+                        <li>They make you think fast.</li>
+                        <li>You want to win, so you try harder.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q6-ans-short">
+                    <div class="answer-box">"Yes, because games are fun and not boring like reading."</div>
+                </div>
+                <div class="expandable-content" id="q6-ans-long">
+                    <div class="answer-box">"I believe games really help me learn. When I play a math game on my tablet, I don't feel like I am studying. I focus better because I want to win and get a high score."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge medium">Medium 🟡</span>
-                <p class="question-text">7. If you could invent a brand new sport, what would it be like?</p>
+            <!-- Q7 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">7. Tell me about a time you made a mistake and learned from it.</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq7-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq7-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq7-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q7-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q7-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q7-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq7-idea" class="hidden-content"><strong>Ideas:</strong> Flying with jetpacks, using balloons, running in water, trampolines.</div>
-                <div id="sq7-short" class="hidden-content"><strong>Short:</strong> "I would invent a sport where people play basketball on trampolines."</div>
-                <div id="sq7-long" class="hidden-content"><strong>Long:</strong> "I would invent a sport called 'Balloon-ball'. It would be like volleyball, but you play on a giant trampoline and you use a huge balloon. You can't let the balloon touch the ground!"</div>
+                <div class="expandable-content" id="q7-ideas">
+                    <ul class="idea-list">
+                        <li>Fell off a bike / skateboard.</li>
+                        <li>Answered a question wrong in class.</li>
+                        <li>Forgot homework at home.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q7-ans-short">
+                    <div class="answer-box">"I forgot my homework once, so now I pack my bag at night."</div>
+                </div>
+                <div class="expandable-content" id="q7-ans-long">
+                    <div class="answer-box">"Once, I was riding my bike too fast on wet grass and I fell down. It hurt a little bit. But I learned my lesson. Now, I always ride slowly when it rains so I stay safe."</div>
+                </div>
             </div>
 
-            <!-- Opinion Questions -->
-            <div class="card question-card">
-                <span class="badge opinion">Opinion 🔴</span>
-                <p class="question-text">8. Is winning the most important thing when you play a game?</p>
+            <!-- Q8 (Opinion) -->
+            <div class="question-block">
+                <span class="tag tag-opinion">Opinion</span>
+                <div class="question-text">8. In your opinion, is it easier to learn from a real teacher or a computer? Why?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq8-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq8-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq8-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q8-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q8-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q8-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq8-idea" class="hidden-content"><strong>Ideas:</strong> No, having fun is better / Yes, I like to win / Trying your best matters.</div>
-                <div id="sq8-short" class="hidden-content"><strong>Short:</strong> "No, I think having fun is the most important thing."</div>
-                <div id="sq8-long" class="hidden-content"><strong>Long:</strong> "No, I don't think so. Winning is nice, but having fun and playing with your friends is much more important. If you lose, you can always try again next time."</div>
+                <div class="expandable-content" id="q8-ideas">
+                    <ul class="idea-list">
+                        <li>Teacher: You can ask them questions, they smile.</li>
+                        <li>Computer: It has cool videos, you can pause it.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q8-ans-short">
+                    <div class="answer-box">"In my opinion, a real teacher is better because they are nice."</div>
+                </div>
+                <div class="expandable-content" id="q8-ans-long">
+                    <div class="answer-box">"In my opinion, it is easier to learn from a real teacher. A computer can show you videos, but it can't answer your specific questions. A teacher can see if you are confused and explain it better."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge opinion">Opinion 🔴</span>
-                <p class="question-text">9. Do you think everyone should get a trophy, even if they lose?</p>
+            <!-- Q9 (Opinion) -->
+            <div class="question-block">
+                <span class="tag tag-opinion">Opinion</span>
+                <div class="question-text">9. Do you think learning outside (like in a park) is better than in a classroom?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq9-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq9-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq9-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q9-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q9-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q9-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq9-idea" class="hidden-content"><strong>Ideas:</strong> Yes, it makes people happy / No, only the winner should get one.</div>
-                <div id="sq9-short" class="hidden-content"><strong>Short:</strong> "Yes, because it shows they tried their best."</div>
-                <div id="sq9-long" class="hidden-content"><strong>Long:</strong> "I think everyone should get a small medal for participating because they practiced hard. But maybe the big golden trophy should only go to the champion."</div>
+                <div class="expandable-content" id="q9-ideas">
+                    <ul class="idea-list">
+                        <li>Outside: Fresh air, lots of space, fun to look at trees.</li>
+                        <li>Inside: Desks are comfortable, no bugs, a big whiteboard.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q9-ans-short">
+                    <div class="answer-box">"I think outside is better because there is fresh air."</div>
+                </div>
+                <div class="expandable-content" id="q9-ans-long">
+                    <div class="answer-box">"I think learning outside is great for subjects like science because you can discover plants and bugs. But for math or writing, a classroom is better because you have a desk to focus."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge opinion">Opinion 🔴</span>
-                <p class="question-text">10. Does playing sports make you a better student in school? Why?</p>
+            <!-- Q10 (Opinion) -->
+            <div class="question-block">
+                <span class="tag tag-opinion">Opinion</span>
+                <div class="question-text">10. What is the most important thing to remember when learning something very hard?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq10-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq10-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq10-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q10-ideas')">Idea Bank 💡</button>
+                    <button class="btn-secondary" onclick="toggleBox(this, 'q10-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q10-ans-long')">Long Answer</button>
                 </div>
-                <div id="sq10-idea" class="hidden-content"><strong>Ideas:</strong> Yes, keeps you healthy, gives you energy / Teaches you teamwork.</div>
-                <div id="sq10-short" class="hidden-content"><strong>Short:</strong> "Yes, because it gives you energy to focus."</div>
-                <div id="sq10-long" class="hidden-content"><strong>Long:</strong> "Yes, I strongly believe that. Playing sports keeps your body healthy and gives you energy. It also teaches you how to work in a team, which helps when doing group projects in class."</div>
+                <div class="expandable-content" id="q10-ideas">
+                    <ul class="idea-list">
+                        <li>Don't give up!</li>
+                        <li>Practice makes perfect.</li>
+                        <li>It's okay to ask for help.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q10-ans-short">
+                    <div class="answer-box">"The most important thing is to never give up."</div>
+                </div>
+                <div class="expandable-content" id="q10-ans-long">
+                    <div class="answer-box">"When learning something hard, the most important thing is to remember that mistakes are okay. Everyone makes mistakes. You just have to be patient, keep practicing, and ask for help when you need it."</div>
+                </div>
             </div>
-
-            <button class="btn-primary section-complete-btn" onclick="markComplete(3, this)">Mark Section Complete ✓</button>
         </section>
 
-        <section id="section-4">
-            <h2>🎭 4. Let's Act It Out!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Choose a partner and practice these fun situations.</p>
+        <!-- SECTION 6: ROLE-PLAY -->
+        <section id="section-6">
+            <h2>4. Role-Play Scenarios 🎭</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">Act it out! Read the situation and practice speaking.</p>
 
-            <div class="grid-2">
-                <div class="card">
-                    <h3 style="color: var(--primary-hover); margin-bottom: 15px; font-size: 1.7rem;">Scenario A: Let's Play!</h3>
-                    <p><strong>Student A:</strong> You really want to play basketball at the park. You invite your friend.</p>
-                    <p style="margin-top: 15px;"><strong>Student B:</strong> You are tired and want to stay inside to play video games instead.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 20px;" onclick="toggle('rp1')">Show Dialogue Hints 🎬</button>
-                    <div id="rp1" class="hidden-content">
-                        <ul style="list-style-type: circle; margin-left: 20px;">
-                            <li><em>"Hey, do you want to go to the park and play basketball?"</em></li>
-                            <li><em>"I'm a bit tired today. Can we play Minecraft inside?"</em></li>
-                            <li><em>"But it's so sunny outside! We can just play for 30 minutes."</em></li>
-                            <li><em>"Okay, fine! But you have to teach me how to shoot."</em></li>
-                        </ul>
+            <div class="roleplay-grid">
+                <!-- Scenario 1 -->
+                <div class="roleplay-card">
+                    <h3 style="color: var(--primary-dark);">Scenario 1: Asking for Help</h3>
+                    <p style="margin-bottom: 10px;"><strong>Situation:</strong> You are in English class. The teacher gave you a worksheet, but you don't understand question number 3. Ask the teacher for help.</p>
+                    <p><strong>Roles:</strong> You (Student) & Teacher.</p>
+                    <button class="btn-secondary" style="margin-top: 20px;" onclick="toggleBox(this, 'rp-1-hints')">Show Dialogue Hints 💬</button>
+                    <div class="expandable-content" id="rp-1-hints">
+                        <p><em>Student:</em> "Excuse me, Mr./Mrs. [Name]?"</p>
+                        <p><em>Teacher:</em> "Yes? How can I help you?"</p>
+                        <p><em>Student:</em> "I don't understand question 3. Could you explain it to me, please?"</p>
+                        <p><em>Teacher:</em> "Of course! Let's look at it together..."</p>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3 style="color: var(--primary-hover); margin-bottom: 15px; font-size: 1.7rem;">Scenario B: Don't Be Sad!</h3>
-                    <p><strong>Student A:</strong> You just missed the final kick in your football match and your team lost. You are very sad.</p>
-                    <p style="margin-top: 15px;"><strong>Student B:</strong> You are Student A's teammate. You want to cheer them up and make them happy.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 20px;" onclick="toggle('rp2')">Show Dialogue Hints 🎬</button>
-                    <div id="rp2" class="hidden-content">
-                        <ul style="list-style-type: circle; margin-left: 20px;">
-                            <li><em>"I'm so sorry, guys. I ruined the game for us."</em></li>
-                            <li><em>"Don't worry! You played great today."</em></li>
-                            <li><em>"But if I scored, we would be the champions."</em></li>
-                            <li><em>"It's just a game. Let's practice tomorrow and win next time!"</em></li>
-                        </ul>
+                <!-- Scenario 2 -->
+                <div class="roleplay-card">
+                    <h3 style="color: var(--accent-dark);">Scenario 2: Teaching a Game</h3>
+                    <p style="margin-bottom: 10px;"><strong>Situation:</strong> You have a fun new video game. Your friend comes over and wants to play, but they don't know the rules. Teach them.</p>
+                    <p><strong>Roles:</strong> You (Expert) & Friend (Beginner).</p>
+                    <button class="btn-secondary" style="margin-top: 20px;" onclick="toggleBox(this, 'rp-2-hints')">Show Dialogue Hints 💬</button>
+                    <div class="expandable-content" id="rp-2-hints">
+                        <p><em>Friend:</em> "This game looks cool! How do you play?"</p>
+                        <p><em>You:</em> "It's easy! First, you press this button to jump."</p>
+                        <p><em>Friend:</em> "Oh, okay. What does the red button do?"</p>
+                        <p><em>You:</em> "The red button makes you run fast. Let's practice together!"</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(4, this)">Mark Section Complete ✓</button>
         </section>
 
-        <section id="section-5">
-            <h2>🚀 5. Sound Like a Pro!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Use these cool starters to make longer sentences. Click a card to flip it!</p>
+        <!-- SECTION 7: FLUENCY BUILDER -->
+        <section id="section-7">
+            <h2>5. Fluency Flashcards ⚡</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">Click the cards to flip them. Use these starters to build big sentences!</p>
 
             <div class="flashcard-grid">
-                <div class="flashcard" onclick="flipCard(this, 'My favorite sport is...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'I like playing because...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'When I play, I feel...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'I think winning is...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'It is super fun to...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'I don\'t like playing...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'Next time, I want to...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'In my opinion,...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'The best part is...')">Click to reveal ✨</div>
-                <div class="flashcard" onclick="flipCard(this, 'For example,...')">Click to reveal ✨</div>
+                <!-- Cards -->
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I usually...</div>
+                        <div class="flashcard-back">...do my homework at 5 PM.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">In my opinion...</div>
+                        <div class="flashcard-back">...reading is better than TV.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">One reason is...</div>
+                        <div class="flashcard-back">...because it is very fun.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">For example...</div>
+                        <div class="flashcard-back">...I play math games on my tablet.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">When I don't understand...</div>
+                        <div class="flashcard-back">...I ask my mom to explain.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">The best way to remember is...</div>
+                        <div class="flashcard-back">...to practice every single day.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I prefer to study...</div>
+                        <div class="flashcard-back">...in a quiet room.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">It is hard for me to...</div>
+                        <div class="flashcard-back">...focus when it is noisy.</div>
+                    </div>
+                </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(5, this)">Mark Section Complete ✓</button>
         </section>
 
-        <section id="section-6">
-            <h2>🎮 6. Review Game: Word Match!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Click a word on the left, then click its meaning on the right to match them up.</p>
+        <!-- SECTION 8: REVIEW GAME -->
+        <section id="section-8">
+            <h2>6. Word Match Challenge 🎮</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">Match the blue word to the grey definition! Click a word, then click a definition.</p>
             
-            <div class="game-container" id="game-board">
-                <div class="game-col" id="words-col">
-                    <!-- Words injected by JS -->
+            <div class="game-container">
+                <div class="game-col" id="game-words">
+                    <!-- Words generated by JS -->
                 </div>
-                <div class="game-col" id="defs-col">
-                    <!-- Definitions injected by JS -->
+                <div class="game-col" id="game-defs">
+                    <!-- Defs generated by JS -->
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(6, this)">Mark Section Complete ✓</button>
+            <div id="game-message" style="text-align: center; margin-top: 25px; font-weight: 700; font-size: 1.4rem; color: var(--primary-dark);"></div>
         </section>
 
-        <section id="section-7">
-            <h2>🧠 7. How did you do?</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.4rem;">Check the boxes if you think you did a great job today!</p>
-
-            <div class="card">
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I learned new sports words (like coach, team, match).</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I answered the questions with loud and clear English.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I tried to use long sentences instead of short ones.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I had fun practicing the role-play with my friend.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I feel happy and confident about speaking English!</span>
-                </label>
+        <!-- SECTION 9: SELF-REFLECTION -->
+        <section id="section-9">
+            <h2>My Reflection 🪞</h2>
+            <p style="margin-bottom: 25px; text-align: center; color: var(--text-light); font-weight: 500;">How did you do today? Click the emojis!</p>
+            
+            <div class="reflection-item">
+                <div style="font-weight: 600; color: var(--text-dark);">1. Was I confident when speaking?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">😞</span>
+                    <span onclick="selectEmoji(this)">😐</span>
+                    <span onclick="selectEmoji(this)">😁</span>
+                </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(7, this)">Mark Section Complete ✓</button>
+            <div class="reflection-item">
+                <div style="font-weight: 600; color: var(--text-dark);">2. Did I use some new vocabulary?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">❌</span>
+                    <span onclick="selectEmoji(this)">🤔</span>
+                    <span onclick="selectEmoji(this)">✅</span>
+                </div>
+            </div>
+            <div class="reflection-item">
+                <div style="font-weight: 600; color: var(--text-dark);">3. Did I try to speak in full sentences?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">👎</span>
+                    <span onclick="selectEmoji(this)">👌</span>
+                    <span onclick="selectEmoji(this)">👍</span>
+                </div>
+            </div>
+            <div class="reflection-item">
+                <div style="font-weight: 600; color: var(--text-dark);">4. Did I have fun learning today?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">😴</span>
+                    <span onclick="selectEmoji(this)">🙂</span>
+                    <span onclick="selectEmoji(this)">🤩</span>
+                </div>
+            </div>
         </section>
 
-        <footer>
-            <p>© 2026 Bản quyền thuộc về <span class="copyright-highlight">Hệ thống Anh Ngữ Lucero (Lucero English System)</span></p>
-            <p style="margin-top: 10px;">Tác giả biên soạn: <span class="copyright-highlight">Mr. Lucero</span></p>
-        </footer>
-
-    </div>
-
-    <div id="custom-modal" class="modal-overlay">
-        <div class="modal-content">
-            <div id="modal-emoji" class="modal-emoji">🌟</div>
-            <h3 id="modal-title" class="modal-title">Great Job!</h3>
-            <p id="modal-text" class="modal-text">You did it!</p>
-            <button class="btn-primary" onclick="closeModal()">Awesome!</button>
+        <!-- FOOTER / COPYRIGHT -->
+        <div class="footer">
+            <p>© Copyright by <span class="brand">ELS - English Lucero System</span></p>
+            <p>Author: <span class="brand">Mr. Lucero</span></p>
         </div>
+
     </div>
+
+    <!-- Container for custom toast notifications -->
+    <div id="toast-container"></div>
 
     <script>
-        // --- Modal Logic (Replaces window.alert for a kid-friendly experience) ---
-        function showModal(title, text, emoji="🌟") {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-text').innerText = text;
-            document.getElementById('modal-emoji').innerText = emoji;
-            document.getElementById('custom-modal').style.display = 'flex';
+        
+        // --- Custom Toast Notification System ---
+        function showToast(message, emoji = '✨') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<span>${emoji}</span> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                toast.addEventListener('animationend', () => {
+                    toast.remove();
+                });
+            }, 3000);
         }
 
-        function closeModal() {
-            document.getElementById('custom-modal').style.display = 'none';
+        // --- Web Speech API (Text-to-Speech) for US English ---
+        let voicesLoaded = false;
+        
+        function initVoices() {
+            // Load voices into browser memory
+            window.speechSynthesis.getVoices();
+            voicesLoaded = true;
         }
 
-        // --- Accordion / Reveal logic ---
-        function toggle(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('show')) {
-                el.classList.remove('show');
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = initVoices;
+            initVoices();
+        }
+
+        function playAudio(word) {
+            if (!('speechSynthesis' in window)) {
+                showToast("Sorry, your browser does not support audio playback.", "🔇");
+                return;
+            }
+
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US'; // Standard US English
+            utterance.rate = 0.85;    // Slower, kid-friendly speed
+            utterance.pitch = 1.1;    // Slightly higher, friendly pitch
+            
+            // Attempt to use a specific high-quality Google US voice if available
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(voice => voice.lang === 'en-US' && voice.name.includes('Google'));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
             } else {
-                el.classList.add('show');
+                // Fallback to any en-US voice
+                const anyUsVoice = voices.find(voice => voice.lang === 'en-US');
+                if (anyUsVoice) utterance.voice = anyUsVoice;
             }
+
+            window.speechSynthesis.speak(utterance);
+            showToast("Playing: " + word, "🔊");
         }
 
-        // --- Flashcard Flip Logic ---
-        function flipCard(element, text) {
-            if (element.innerText === 'Click to reveal ✨') {
-                element.innerText = text;
-                element.style.background = 'linear-gradient(135deg, var(--secondary), #fbbf24)'; // Orange/Yellow
-                element.style.color = '#fff';
-                element.style.borderColor = '#d97706';
+        // --- General Interactivity ---
+        function toggleBox(btn, boxId) {
+            const content = document.getElementById(boxId);
+            const isActive = content.classList.contains('active');
+            
+            if (isActive) {
+                content.classList.remove('active');
             } else {
-                element.innerText = 'Click to reveal ✨';
-                element.style.background = 'linear-gradient(135deg, var(--primary), #38bdf8)'; // Revert to Blue
-                element.style.borderColor = '#0284c7';
+                content.classList.add('active');
             }
         }
 
-        // --- Progress Tracker Logic ---
-        let totalSectionsCompleted = 0;
-        const totalSections = 7;
-
-        function markComplete(sectionNum, btnEl) {
-            if (!btnEl.classList.contains('completed')) {
-                btnEl.classList.add('completed');
-                btnEl.innerText = "Completed! 🌟";
-                totalSectionsCompleted++;
-                
-                // Update Progress Bar
-                const percentage = (totalSectionsCompleted / totalSections) * 100;
-                document.getElementById('progress-bar').style.width = percentage + '%';
-
-                if(percentage === 100) {
-                    setTimeout(() => {
-                        showModal("🎉 YOU ARE A CHAMPION! 🎉", "You finished the whole lesson! Give yourself a high five!", "🏆");
-                    }, 600);
-                }
+        // --- Progress Tracker ---
+        function toggleProgress(el) {
+            el.classList.toggle('completed');
+            if(el.classList.contains('completed')){
+                el.innerText = el.innerText.replace(' ', ' ✅ ');
+                showToast("Great job! Section completed.", "🌟");
+            } else {
+                el.innerText = el.innerText.replace(' ✅ ', ' ');
             }
         }
 
-        // --- Review Game Logic for Kids ---
+        // --- Flashcards ---
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // --- Reflection Emojis ---
+        function selectEmoji(emojiEl) {
+            const siblings = emojiEl.parentElement.children;
+            for(let i=0; i<siblings.length; i++){
+                siblings[i].classList.remove('selected');
+            }
+            emojiEl.classList.add('selected');
+            showToast("Feedback saved! Thanks!", "💖");
+        }
+
+        // --- Review Game Logic ---
         const vocabData = [
-            { id: 1, word: "To kick", def: "To hit a ball hard with your foot." },
-            { id: 2, word: "Team", def: "A group of people playing together." },
-            { id: 3, word: "To score", def: "To get a point in a game." },
-            { id: 4, word: "Coach", def: "The boss or teacher of a team." },
-            { id: 5, word: "Match", def: "A game against another team." },
-            { id: 6, word: "To practice", def: "To do something many times to get better." },
-            { id: 7, word: "Champion", def: "The person or team who wins the tournament." },
-            { id: 8, word: "Referee", def: "The person who makes sure players follow rules." }
+            { id: 1, word: "Practice", def: "Doing something again and again." },
+            { id: 2, word: "Discover", def: "To find something new." },
+            { id: 3, word: "Mistake", def: "Something you do wrong." },
+            { id: 4, word: "Curious", def: "Wanting to know more." }
         ];
 
         let selectedWordBtn = null;
         let selectedDefBtn = null;
         let matchesFound = 0;
 
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
         function initGame() {
-            const wordsCol = document.getElementById('words-col');
-            const defsCol = document.getElementById('defs-col');
+            const wordContainer = document.getElementById('game-words');
+            const defContainer = document.getElementById('game-defs');
             
-            let words = [...vocabData];
-            let defs = [...vocabData];
-            
-            shuffleArray(words);
-            shuffleArray(defs);
+            // Shuffle arrays
+            const words = [...vocabData].sort(() => Math.random() - 0.5);
+            const defs = [...vocabData].sort(() => Math.random() - 0.5);
 
             words.forEach(item => {
                 let btn = document.createElement('button');
-                btn.className = 'game-btn word-btn';
+                btn.className = 'game-btn';
                 btn.innerText = item.word;
                 btn.dataset.id = item.id;
                 btn.onclick = () => handleWordClick(btn);
-                wordsCol.appendChild(btn);
+                wordContainer.appendChild(btn);
             });
 
             defs.forEach(item => {
                 let btn = document.createElement('button');
-                btn.className = 'game-btn def-btn';
+                btn.className = 'game-btn';
                 btn.innerText = item.def;
                 btn.dataset.id = item.id;
                 btn.onclick = () => handleDefClick(btn);
-                defsCol.appendChild(btn);
+                defContainer.appendChild(btn);
             });
         }
 
         function handleWordClick(btn) {
-            if(btn.classList.contains('matched')) return;
-            document.querySelectorAll('.word-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
+            if (btn.classList.contains('matched')) return;
+            
+            // Deselect previous
+            if (selectedWordBtn) selectedWordBtn.classList.remove('selected');
+            
             selectedWordBtn = btn;
+            selectedWordBtn.classList.add('selected');
+            
             checkMatch();
         }
 
         function handleDefClick(btn) {
-            if(btn.classList.contains('matched')) return;
-            document.querySelectorAll('.def-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
+            if (btn.classList.contains('matched')) return;
+            
+            // Deselect previous
+            if (selectedDefBtn) selectedDefBtn.classList.remove('selected');
+            
             selectedDefBtn = btn;
+            selectedDefBtn.classList.add('selected');
+            
             checkMatch();
         }
 
         function checkMatch() {
             if (selectedWordBtn && selectedDefBtn) {
-                const wordId = selectedWordBtn.dataset.id;
-                const defId = selectedDefBtn.dataset.id;
-
-                if (wordId === defId) {
+                if (selectedWordBtn.dataset.id === selectedDefBtn.dataset.id) {
                     // Match!
                     selectedWordBtn.classList.remove('selected');
                     selectedDefBtn.classList.remove('selected');
                     selectedWordBtn.classList.add('matched');
                     selectedDefBtn.classList.add('matched');
                     
-                    selectedWordBtn = null;
-                    selectedDefBtn = null;
                     matchesFound++;
-
-                    if (matchesFound === vocabData.length) {
-                        setTimeout(() => {
-                            showModal("🎮 Game Over!", "Wow! You matched ALL the words! You have an amazing memory.", "🧠");
-                        }, 400);
+                    document.getElementById('game-message').innerText = "Correct! 🎉";
+                    showToast("Perfect Match!", "🎯");
+                    
+                    if(matchesFound === vocabData.length) {
+                        document.getElementById('game-message').innerText = "You won the game! 🏆 Amazing job!";
+                        showToast("YOU WON!", "🏆");
                     }
+                    
+                    resetSelection();
                 } else {
-                    // Wrong!
+                    // No match
                     selectedWordBtn.classList.add('wrong');
                     selectedDefBtn.classList.add('wrong');
-                    
-                    let tempW = selectedWordBtn;
-                    let tempD = selectedDefBtn;
+                    document.getElementById('game-message').innerText = "Oops! Try again. 🧐";
                     
                     setTimeout(() => {
-                        tempW.classList.remove('wrong', 'selected');
-                        tempD.classList.remove('wrong', 'selected');
+                        selectedWordBtn.classList.remove('wrong', 'selected');
+                        selectedDefBtn.classList.remove('wrong', 'selected');
+                        resetSelection();
+                        document.getElementById('game-message').innerText = "";
                     }, 500);
-
-                    selectedWordBtn = null;
-                    selectedDefBtn = null;
                 }
             }
         }
 
-        // Initialize Game on load
-        window.onload = initGame;
-
-        // Reflection Checkbox logic
-        function updateProgress() {
-            // Can be used for extra micro-animations in the future
+        function resetSelection() {
+            selectedWordBtn = null;
+            selectedDefBtn = null;
         }
+
+        // Initialize on load
+        window.onload = initGame;
 
     </script>
 </body>
