@@ -1,1053 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: Solving Small School Problems</title>
-    <style>
-        :root {
-            --primary: #4A90E2;
-            --primary-hover: #357ABD;
-            --secondary: #FFB020;
-            --success: #00C48C;
-            --bg: #F4F7FB;
-            --card-bg: #FFFFFF;
-            --text-main: #333333;
-            --text-muted: #666666;
-            --radius: 16px;
-            --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            --font: 'Nunito', system-ui, -apple-system, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELS Speaking · Kids A1+ · A Good Classmate</title>
+<style>
+  :root{
+    --primary:#f97316; --primary-hover:#ea580c; --secondary:#06b6d4;
+    --success:#22c55e; --warning:#eab308; --pink:#ec4899; --purple:#8b5cf6;
+    --bg:#fffbeb; --card-bg:#ffffff; --text-main:#3f3f46; --text-muted:#71717a;
+    --border:#fde68a; --radius:22px;
+    --shadow-sm:0 2px 4px 0 rgb(0 0 0 / .06);
+    --shadow-md:0 6px 14px -2px rgb(249 115 22 / .22);
+    --shadow-lg:0 12px 26px -4px rgb(249 115 22 / .28);
+    --font:'Comic Sans MS','Segoe UI',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--bg);color:var(--text-main);line-height:1.6;padding-bottom:90px;font-size:17px}
+  #progress-container{position:fixed;top:0;left:0;width:100%;height:9px;background:var(--border);z-index:1000}
+  #progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--primary),var(--secondary),var(--success));transition:width .5s ease}
+  .container{max-width:880px;margin:0 auto;padding:34px 16px}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  .hero{text-align:center;margin-bottom:30px;background:linear-gradient(135deg,#f97316,#ec4899,#8b5cf6);color:#fff;padding:44px 24px;border-radius:30px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .hero::before{content:"🌟";position:absolute;font-size:8rem;opacity:.15;top:-10px;right:10px;transform:rotate(15deg)}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+  .badge{background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.4);padding:5px 14px;border-radius:20px;font-size:.85rem;font-weight:700}
+  .hero h1{font-size:2.6rem;margin-bottom:6px;text-shadow:2px 2px 0 rgba(0,0,0,.12)}
+  .hero .sub{font-size:1.1rem;color:#fff;opacity:.95;margin-bottom:20px}
+  .objectives-card{background:rgba(255,255,255,.18);padding:18px 20px;border-radius:20px;text-align:left;border:2px solid rgba(255,255,255,.3)}
+  .objectives-card h3{margin-bottom:10px;font-size:1.1rem}
+  .objectives-card ul{list-style:none}
+  .objectives-card li{margin-bottom:8px;font-size:1.05rem;display:flex;gap:10px}
 
-        body {
-            font-family: var(--font);
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 60px;
-        }
+  .section{background:var(--card-bg);border:3px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:20px;box-shadow:var(--shadow-sm)}
+  .section-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px;padding-bottom:12px;border-bottom:3px dashed var(--border)}
+  .section-header h2{font-size:1.5rem;color:var(--primary-hover)}
+  .mark{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--text-muted);cursor:pointer;white-space:nowrap}
+  .mark input{width:20px;height:20px;accent-color:var(--success);cursor:pointer}
+  .intro{color:var(--text-muted);margin:10px 0 16px;font-size:1rem}
+  .teacher-note{background:#ecfeff;border-left:5px solid var(--secondary);border-radius:14px;padding:12px 16px;margin:14px 0;font-size:.92rem;color:#155e75}
+  .teacher-note b{color:var(--secondary)}
 
-        /* Top Progress Bar */
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: #E0E0E0;
-            z-index: 1000;
-        }
+  .reveal-card{border:3px solid var(--border);border-radius:18px;padding:16px 18px;margin-bottom:12px;cursor:pointer;transition:.2s;background:#fff}
+  .reveal-card:hover{border-color:var(--primary);transform:scale(1.01);box-shadow:var(--shadow-md)}
+  .reveal-card .q{font-weight:700;display:flex;gap:12px;align-items:center;font-size:1.1rem}
+  .reveal-card .q .em{font-size:2rem}
+  .answer{max-height:0;overflow:hidden;transition:max-height .35s ease,margin .35s,padding .35s;color:var(--primary-hover);font-weight:700}
+  .reveal-card.open .answer{max-height:300px;margin-top:12px;padding-top:12px;border-top:3px dotted var(--border)}
+  .answer .say{font-size:.8rem;color:var(--text-muted);font-weight:400;display:block;margin-bottom:4px}
 
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: var(--success);
-            transition: width 0.4s ease;
-        }
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .vocab{border:3px solid var(--border);border-radius:20px;padding:16px 10px;cursor:pointer;transition:.2s;background:#fff;text-align:center}
+  .vocab:hover{border-color:var(--pink);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .vocab .emoji{font-size:3rem;display:block}
+  .vocab .word{font-weight:700;font-size:1.2rem;color:var(--purple);margin-top:6px}
+  .vocab .ex{max-height:0;overflow:hidden;transition:max-height .3s,margin .3s;font-size:.9rem;color:var(--text-muted);font-style:italic}
+  .vocab.open .ex{max-height:120px;margin-top:8px}
+  .vocab .hear{margin-top:8px;background:var(--secondary);color:#fff;border:none;border-radius:16px;padding:5px 12px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:inherit}
 
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  .q-idea{background:#f0fdf4;border-radius:14px;padding:10px 14px;margin-top:10px;font-size:.95rem}
+  .q-idea b{color:var(--success)}
+  .sample-btn{margin-top:10px;background:var(--purple);color:#fff;border:none;border-radius:18px;padding:8px 16px;font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit}
+  .sample-text{display:none;background:#faf5ff;border:2px solid #e9d5ff;border-radius:14px;padding:12px 14px;font-size:1.05rem;margin-top:10px;font-weight:700;color:var(--purple)}
+  .sample-text.show{display:block}
 
-        /* Header / Objectives */
-        .hero {
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #4A90E2, #56CCF2);
-            color: white;
-            padding: 40px 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
+  .roleplay{border:3px solid var(--border);border-radius:20px;padding:20px;margin-bottom:16px;background:linear-gradient(135deg,#fff,#fffbeb)}
+  .roleplay h3{color:var(--pink);margin-bottom:8px;font-size:1.2rem}
+  .roles{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+  .role-pill{background:#fce7f3;border:2px solid #fbcfe8;color:#9d174d;padding:6px 14px;border-radius:20px;font-size:.9rem;font-weight:700}
+  .hint-toggle{background:var(--pink);color:#fff;border:none;border-radius:20px;padding:9px 20px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.9rem}
+  .hint-box{display:none;margin-top:12px;background:#fdf2f8;border:2px dashed var(--pink);border-radius:16px;padding:14px}
+  .hint-box.show{display:block}
+  .hint-box p{margin-bottom:6px;font-size:1rem}
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+  .flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .flash{background:linear-gradient(135deg,var(--secondary),var(--purple));color:#fff;border-radius:20px;padding:22px 14px;min-height:100px;display:grid;place-items:center;text-align:center;cursor:pointer;font-weight:700;font-size:1.15rem;transition:transform .25s}
+  .flash:hover{transform:scale(1.05) rotate(-2deg)}
+  .flash .back{display:none;font-size:1rem;font-weight:400}
+  .flash.flip .front{display:none}.flash.flip .back{display:block}
 
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+  .match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:600px){.match-wrap{grid-template-columns:1fr}}
+  .match-col h4{font-size:.9rem;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;text-align:center}
+  .match-item{border:3px solid var(--border);border-radius:16px;padding:14px;margin-bottom:10px;cursor:pointer;font-size:1.05rem;font-weight:700;transition:.15s;background:#fff;text-align:center}
+  .match-item:hover{border-color:var(--primary)}
+  .match-item.selected{border-color:var(--primary);background:#fff7ed}
+  .match-item.done{border-color:var(--success);background:#f0fdf4;opacity:.65;cursor:default}
+  #match-feedback{margin-top:14px;font-weight:700;text-align:center;min-height:26px;font-size:1.2rem}
 
-        .objectives-card {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            text-align: left;
-        }
+  .reflect .r-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border:3px solid var(--border);border-radius:18px;margin-bottom:10px;font-size:1.05rem;flex-wrap:wrap}
+  .choice{display:flex;gap:6px;margin-left:auto}
+  .choice button{border:2px solid var(--border);background:#fff;border-radius:16px;padding:6px 12px;cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:700}
+  .choice button.on{background:var(--success);color:#fff;border-color:var(--success)}
 
-        .objectives-card ul {
-            list-style: none;
-            margin-top: 10px;
-        }
+  .tracker-list{list-style:none}
+  .tracker-list li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:2px dashed var(--border);font-size:1.05rem}
+  .tracker-list input{width:22px;height:22px;accent-color:var(--success)}
+  .complete-banner{text-align:center;padding:28px;background:linear-gradient(135deg,#fef9c3,#fce7f3);border-radius:24px;border:3px solid var(--border);margin-top:10px}
+  .complete-banner h2{color:var(--primary-hover);font-size:1.6rem}
+  .stars-big{font-size:2.4rem;margin-top:8px}
 
-        .objectives-card li {
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .objectives-card li::before {
-            content: "🎯 ";
-        }
-
-        /* Section Layouts */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            margin-top: 50px;
-            border-bottom: 2px solid #E0E7FF;
-            padding-bottom: 10px;
-        }
-
-        .section-header h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-
-        .mark-complete {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #fff;
-            padding: 8px 12px;
-            border-radius: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: 0.2s;
-        }
-
-        .mark-complete:hover {
-            color: var(--success);
-        }
-
-        .mark-complete input {
-            transform: scale(1.2);
-            cursor: pointer;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Buttons */
-        button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-
-        button:hover {
-            background-color: var(--primary-hover);
-        }
-
-        button.outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        button.outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Details & Summary (Accordions) */
-        details {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            margin-top: 15px;
-            overflow: hidden;
-        }
-
-        summary {
-            padding: 15px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #fff;
-            transition: 0.2s;
-        }
-
-        summary:hover {
-            background: #F1F5F9;
-        }
-
-        summary::after {
-            content: '▼';
-            font-size: 0.8rem;
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-
-        details[open] summary::after {
-            transform: rotate(180deg);
-        }
-
-        .details-content {
-            padding: 20px;
-            border-top: 1px solid #E2E8F0;
-        }
-
-        .details-content ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        /* Answers Specific */
-        .answer-box {
-            background: #fff;
-            border-left: 4px solid var(--primary);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .answer-box span.badge {
-            display: inline-block;
-            background: #E0E7FF;
-            color: var(--primary);
-            font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        /* Vocabulary Grid */
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .vocab-item {
-            text-align: center;
-        }
-
-        .vocab-word {
-            font-size: 1.5rem;
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .vocab-def {
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        /* Hidden Utility */
-        .hidden {
-            display: none;
-        }
-
-        /* Flashcards (Fluency Builder) */
-        .flashcard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .flashcard {
-            background: var(--card-bg);
-            border: 2px dashed #CBD5E1;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.3s;
-            height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .flashcard:hover {
-            border-color: var(--primary);
-            background: #F8FAFC;
-        }
-
-        .flashcard .front {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .flashcard .back {
-            display: none;
-            font-size: 1rem;
-            color: var(--text-main);
-        }
-
-        .flashcard.flipped .front { display: none; }
-        .flashcard.flipped .back { display: block; }
-
-        /* Review Game */
-        .quiz-option {
-            display: block;
-            width: 100%;
-            text-align: left;
-            margin-bottom: 10px;
-            background: #F8FAFC;
-            color: var(--text-main);
-            border: 2px solid transparent;
-        }
-        .quiz-option:hover:not(:disabled) {
-            background: #E2E8F0;
-        }
-        .quiz-option:disabled {
-            cursor: not-allowed;
-            opacity: 0.8;
-        }
-        .feedback {
-            margin-top: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Tips Table (New addition for academic support) */
-        .tips-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .tips-table th {
-            background: var(--primary);
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-        .tips-table td {
-            padding: 12px;
-            border-bottom: 1px solid #E2E8F0;
-            font-size: 1rem;
-        }
-
-        /* Flowchart (New addition for self-learning visually) */
-        .flowchart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            padding: 20px;
-            background: #E0E7FF;
-            border-radius: 16px;
-        }
-        .flow-step {
-            background: white;
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        .flow-arrow {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        /* Media Queries */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
-            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .mark-complete { align-self: flex-start; }
-            .flow-arrow { transform: rotate(90deg); }
-            .flowchart { flex-direction: column; }
-        }
-    </style>
+  footer{text-align:center;margin-top:36px;padding-top:18px;border-top:3px dashed var(--border);color:var(--text-muted);font-size:.92rem;display:flex;flex-direction:column;gap:5px}
+  footer .cc{font-weight:700;color:var(--primary-hover)}
+  .fab{position:fixed;bottom:18px;right:18px;background:var(--primary);color:#fff;border:none;border-radius:30px;padding:13px 22px;font-weight:700;box-shadow:var(--shadow-lg);cursor:pointer;z-index:1000;font-family:inherit}
+  @media(max-width:600px){.hero h1{font-size:2rem}}
+</style>
 </head>
 <body>
+<div id="progress-container"><div id="progress-bar"></div></div>
+<div class="container">
 
-    <!-- Sticky Progress Bar -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
+  <div class="hero">
+    <div class="badges">
+      <span class="badge">🧒 Kids 8–12</span>
+      <span class="badge">🎯 A1+</span>
+      <span class="badge">⏱️ 60 min</span>
+      <span class="badge">💻 Zoom</span>
     </div>
-
-    <div class="container">
-        <!-- HEADER -->
-        <header class="hero">
-            <h1>🏫 Solving Small School Problems</h1>
-            <p>A fun speaking lesson for kids! (Ages 8-12 | Level A1-B1)</p>
-            
-            <div class="objectives-card">
-                <h3>Today's Goals:</h3>
-                <ul>
-                    <li>Use vocabulary related to daily school problems.</li>
-                    <li>Ask for help and give simple advice.</li>
-                    <li>Explain a problem clearly using "because" or "so".</li>
-                </ul>
-            </div>
-        </header>
-
-        <!-- ACADEMIC ADDITION: Problem Solving Strategy Flowchart -->
-        <div class="card" style="border: 2px dashed var(--primary); text-align: center;">
-            <h3 style="justify-content: center;">🧠 The "3 Steps" to Solve Any Problem</h3>
-            <p style="color: var(--text-muted);">Memorize this simple strategy before we start speaking!</p>
-            <div class="flowchart">
-                <div class="flow-step" style="color: #D0021B;">1. Stop & Think 🤔<br><span style="font-size:0.8rem; font-weight:normal;">"What is wrong?"</span></div>
-                <div class="flow-arrow">➔</div>
-                <div class="flow-step" style="color: var(--secondary);">2. Ask for Help 🙋<br><span style="font-size:0.8rem; font-weight:normal;">"Can you help me?"</span></div>
-                <div class="flow-arrow">➔</div>
-                <div class="flow-step" style="color: var(--success);">3. Fix & Thank 🌟<br><span style="font-size:0.8rem; font-weight:normal;">"Thank you!"</span></div>
-            </div>
-        </div>
-
-        <!-- SECTION 1: WARM-UP -->
-        <div class="section-header">
-            <h2>1. Warm-Up 😄</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        
-        <div class="card">
-            <h3>🙋 Let's chat!</h3>
-            <p>Click the buttons below to see some example answers.</p>
-            <br>
-            
-            <div id="warmup-container">
-                <!-- Warm up items generated via JS for cleaner code below -->
-            </div>
-        </div>
-
-        <!-- SECTION 2: VOCABULARY -->
-        <div class="section-header">
-            <h2>2. Vocabulary 📚</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-
-        <div class="card">
-            <p>Learn these new words! Click "Read Example" to see how to use them.</p>
-            <br>
-            <div class="vocab-grid">
-                
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Problem ⚠️</div>
-                    <div class="vocab-def">Something that is hard or wrong.</div>
-                    <button class="outline" onclick="toggle('ex1')">Read Example</button>
-                    <p id="ex1" class="hidden" style="margin-top:15px; color:#4A90E2;">"I have a problem. I can't find my book."</p>
-                </div>
-
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Solve 💡</div>
-                    <div class="vocab-def">To find an answer or fix something.</div>
-                    <button class="outline" onclick="toggle('ex2')">Read Example</button>
-                    <p id="ex2" class="hidden" style="margin-top:15px; color:#4A90E2;">"We worked together to solve the math puzzle."</p>
-                </div>
-
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Advice 🗣️</div>
-                    <div class="vocab-def">An idea to help someone.</div>
-                    <button class="outline" onclick="toggle('ex3')">Read Example</button>
-                    <p id="ex3" class="hidden" style="margin-top:15px; color:#4A90E2;">"My teacher gave me good advice about studying."</p>
-                </div>
-
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Forgot 🧠</div>
-                    <div class="vocab-def">When you do not remember something.</div>
-                    <button class="outline" onclick="toggle('ex4')">Read Example</button>
-                    <p id="ex4" class="hidden" style="margin-top:15px; color:#4A90E2;">"Oh no! I forgot my homework at home."</p>
-                </div>
-
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Argue 😠</div>
-                    <div class="vocab-def">To speak angrily with someone.</div>
-                    <button class="outline" onclick="toggle('ex5')">Read Example</button>
-                    <p id="ex5" class="hidden" style="margin-top:15px; color:#4A90E2;">"Friends sometimes argue, but they say sorry later."</p>
-                </div>
-
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Apologize 🤝</div>
-                    <div class="vocab-def">To say "I am sorry".</div>
-                    <button class="outline" onclick="toggle('ex6')">Read Example</button>
-                    <p id="ex6" class="hidden" style="margin-top:15px; color:#4A90E2;">"I will apologize because I broke your pencil."</p>
-                </div>
-
-                <!-- Academic Addition: Expanded Vocabulary -->
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Share 🍕</div>
-                    <div class="vocab-def">To let someone use your things.</div>
-                    <button class="outline" onclick="toggle('ex7')">Read Example</button>
-                    <p id="ex7" class="hidden" style="margin-top:15px; color:#4A90E2;">"I will share my snacks with you."</p>
-                </div>
-
-                <div class="card vocab-item" style="box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <div class="vocab-word">Compromise ⚖️</div>
-                    <div class="vocab-def">To agree by giving up a little bit.</div>
-                    <button class="outline" onclick="toggle('ex8')">Read Example</button>
-                    <p id="ex8" class="hidden" style="margin-top:15px; color:#4A90E2;">"We both want the toy, so let's compromise and take turns."</p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- SECTIONS 3, 4, 5: MAIN SPEAKING / IDEAS / ANSWERS -->
-        <div class="section-header">
-            <h2>3. Speaking Practice 🗣️</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <p style="margin-bottom: 20px;">What would you do? Open the Idea Bank or Sample Answers if you need help.</p>
-
-        <!-- Level: Easy -->
-        <h3 style="color:var(--success); margin-bottom: 10px;">🟢 Easy Questions</h3>
-        
-        <div class="card">
-            <h3>Q1. You forgot your pencil case. What do you do? ✏️</h3>
-            <details>
-                <summary>💡 Idea Bank (Click to open)</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Ask a friend to borrow a pencil.</li>
-                        <li>Ask the teacher for a spare pen.</li>
-                        <li>Check your bag again carefully.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I ask my friend, "Can I borrow a pencil, please?"</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>First, I look in my bag again. If it is not there, I tell my teacher that I forgot it. Then, I ask the teacher or a friend if I can borrow a pen for the day.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q2. You spill water on your desk. What do you do? 💧</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Get some paper towels.</li>
-                        <li>Tell the teacher.</li>
-                        <li>Move your books so they don't get wet.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I get some paper towels to clean it up.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>First, I quickly move my books so they stay dry. Then, I tell the teacher, "I spilled my water." I go to the bathroom to get paper towels and clean the desk.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Academic Addition: Extra Easy Question -->
-        <div class="card">
-            <h3>Q3. You cannot open your locker or your box. What do you do? 🔐</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Try one more time slowly.</li>
-                        <li>Ask a tall friend to help.</li>
-                        <li>Ask the teacher or the school staff.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I ask my teacher, "Can you help me open this, please?"</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>I try to open it slowly one more time. If it is still stuck, I find my teacher. I say, "Excuse me, my box is stuck. Can you please help me open it?"</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Level: Medium -->
-        <h3 style="color:#F5A623; margin-top:30px; margin-bottom: 10px;">🟡 Medium Questions</h3>
-
-        <div class="card">
-            <h3>Q4. Two friends want to play with the same basketball. How can they solve this? 🏀</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Play a game together with the ball.</li>
-                        <li>Take turns (5 minutes each).</li>
-                        <li>Find a second basketball.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>They should play a game together and share the ball.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>They shouldn't argue. A good idea is to play a basketball game together. If they want to play different games, they can take turns. One person plays for 10 minutes, and then the other person plays.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q5. Someone is sitting in your favorite seat in the cafeteria. What do you do? 🪑</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Sit somewhere else. It's okay!</li>
-                        <li>Ask them if you can sit next to them.</li>
-                        <li>Find another table with your friends.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I just find a different seat. It is not a big problem.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>I would politely say hello and find another chair. Or, if there is a space, I might ask, "Can I sit next to you?" It is fun to sit with new people sometimes.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-        
-        <!-- Academic Addition: Extra Medium Question -->
-        <div class="card">
-            <h3>Q6. You accidentally tear your friend's drawing. What do you do? 📄</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Apologize immediately.</li>
-                        <li>Use tape to fix it.</li>
-                        <li>Help them draw a new one.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I apologize and say, "I'm so sorry! Let me fix it."</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>First, I apologize quickly because I made a mistake. Then, I find some clear tape to fix the paper carefully. If it is ruined, I offer to help them draw a brand new picture.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Level: Opinion -->
-        <h3 style="color:#D0021B; margin-top:30px; margin-bottom: 10px;">🔴 Opinion Questions</h3>
-
-        <div class="card">
-            <h3>Q7. Is it better to solve a problem yourself or ask a teacher? Why? 👩‍🏫</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Small problems: Solve it yourself (like dropping a pencil).</li>
-                        <li>Big problems: Ask a teacher (like if someone is hurt).</li>
-                        <li>Teachers give good advice.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I think it depends. Small problems I fix myself, but big problems need a teacher.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>In my opinion, you should try to solve small problems yourself first. For example, if you forget a pen, you can just ask a friend. But if there is a big argument or someone is crying, you must ask a teacher because they know how to help safely.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <!-- Academic Addition: Extra Opinion Question -->
-        <div class="card">
-            <h3>Q8. Do you think saying "sorry" always solves the problem? 🗣️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Yes, it makes people feel better.</li>
-                        <li>No, you also need to fix what you broke.</li>
-                        <li>It is a good start, but actions matter more.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I think saying sorry is important, but you also have to fix your mistake.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge">Extended</span>
-                        <p>In my opinion, saying sorry is a great start because it shows you care. However, it doesn't always solve everything. If you break someone's toy, you say sorry, but you should also try to fix it or buy a new one. Actions are very important.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-
-        <!-- SECTION 6: ROLE-PLAY -->
-        <div class="section-header">
-            <h2>6. Role-Play Time! 🎭</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <p style="margin-bottom:20px;">Work with a partner. Choose a role and act out the situation!</p>
-
-        <!-- Academic Addition: Role-Play Tips Table -->
-        <div class="card">
-            <h3 style="margin-bottom: 15px; color: var(--primary);">🗣️ Useful Phrases for Role-Play</h3>
-            <table class="tips-table">
-                <tr>
-                    <th>If you HAVE a problem...</th>
-                    <th>If you are HELPING...</th>
-                </tr>
-                <tr>
-                    <td>"Excuse me, can you help me?"</td>
-                    <td>"What's wrong?" / "Are you okay?"</td>
-                </tr>
-                <tr>
-                    <td>"I have a problem. I lost my..."</td>
-                    <td>"Don't worry. I can help you."</td>
-                </tr>
-                <tr>
-                    <td>"I'm so sorry. I didn't mean to..."</td>
-                    <td>"It's okay. Let's fix it together."</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="card" style="border-left: 5px solid var(--secondary);">
-            <h3>Scenario A: The Lost Homework 📄</h3>
-            <p><strong>Situation:</strong> Student A lost their homework. They are looking everywhere. Student B wants to help them.</p>
-            <p><strong>👦 Role A:</strong> You are worried. Explain the problem.</p>
-            <p><strong>👧 Role B:</strong> Give advice and help them look.</p>
-            
-            <details>
-                <summary>💬 Dialogue Hints</summary>
-                <div class="details-content">
-                    <p><strong>A:</strong> Oh no! I can't find my...</p>
-                    <p><strong>B:</strong> What's wrong? Can I help you?</p>
-                    <p><strong>A:</strong> I lost my homework. I think I left it...</p>
-                    <p><strong>B:</strong> Don't worry. Why don't we check your...</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="card" style="border-left: 5px solid var(--success);">
-            <h3>Scenario B: The Playground Argument ⚽</h3>
-            <p><strong>Situation:</strong> It is break time. There is only one ball left.</p>
-            <p><strong>👦 Role A:</strong> You really want to play Soccer.</p>
-            <p><strong>👧 Role B:</strong> You really want to play Dodgeball.</p>
-            
-            <details>
-                <summary>💬 Dialogue Hints</summary>
-                <div class="details-content">
-                    <p><strong>A:</strong> I got the ball! Let's play soccer!</p>
-                    <p><strong>B:</strong> But I wanted to play dodgeball today!</p>
-                    <p><strong>A:</strong> We played dodgeball yesterday. It's my turn to choose.</p>
-                    <p><strong>B:</strong> Maybe we can compromise. What if we...</p>
-                </div>
-            </details>
-        </div>
-
-        <!-- SECTION 7: FLUENCY BUILDER -->
-        <div class="section-header">
-            <h2>7. Fluency Builder 🏗️</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <p style="margin-bottom: 20px;">Click the flashcards to see how to start your sentences like a pro!</p>
-
-        <div class="flashcard-grid">
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I think we should...</div>
-                <div class="back">"I think we should <strong>ask the teacher.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">Maybe you could...</div>
-                <div class="back">"Maybe you could <strong>borrow my pen.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">The problem is...</div>
-                <div class="back">"The problem is <strong>I forgot my lunch.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I'm sorry for...</div>
-                <div class="back">"I'm sorry for <strong>breaking your ruler.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">Why don't we...</div>
-                <div class="back">"Why don't we <strong>share the book?</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">In my opinion...</div>
-                <div class="back">"In my opinion, <strong>it is good to share.</strong>"</div>
-            </div>
-            <!-- Academic Addition: 4 more flashcards for robust structure -->
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">First, I will...</div>
-                <div class="back">"First, I will <strong>look in my bag.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">Excuse me, can you...</div>
-                <div class="back">"Excuse me, can you <strong>help me, please?</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">Let's compromise and...</div>
-                <div class="back">"Let's compromise and <strong>take turns.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">That's a good idea...</div>
-                <div class="back">"That's a good idea, <strong>thank you!</strong>"</div>
-            </div>
-        </div>
-
-        <!-- SECTION 8: REVIEW GAME -->
-        <div class="section-header">
-            <h2>8. Review Game 🎮</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <div class="card">
-            <h3>Match the best advice!</h3>
-            
-            <div style="margin-bottom: 25px;">
-                <p><strong>1. "I feel sick during math class."</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, false)">A. Go to sleep on your desk.</button>
-                <button class="quiz-option" onclick="checkGame(this, true)">B. Tell the teacher and ask to go to the nurse.</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">C. Ignore it and eat a candy.</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-
-            <div style="margin-bottom: 25px;">
-                <p><strong>2. "I accidentally bumped into someone and they dropped their books."</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, false)">A. Run away fast.</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">B. Laugh at them.</button>
-                <button class="quiz-option" onclick="checkGame(this, true)">C. Say "I'm sorry!" and help them pick up the books.</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-            
-            <!-- Academic Addition: Extra Review Question -->
-            <div style="margin-bottom: 25px;">
-                <p><strong>3. "Two friends want to read the same comic book."</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, true)">A. Share the book or take turns reading.</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">B. Argue until someone cries.</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">C. Hide the book so nobody can read it.</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-        </div>
-
-        <!-- SECTION 9: SELF-REFLECTION -->
-        <div class="section-header">
-            <h2>9. Self-Reflection 🪞</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <div class="card">
-            <p>Think about your speaking today. Ask yourself these questions:</p>
-            <ul style="list-style-type: none; margin-top:15px; font-size:1.1rem; line-height:2;">
-                <li>🌟 Was I confident when I spoke?</li>
-                <li>🌟 Did I use any new vocabulary words?</li>
-                <li>🌟 Did I speak loudly and clearly?</li>
-                <li>🌟 Did I listen well to my partner?</li>
-                <li>🌟 Did I try to make long sentences?</li>
-            </ul>
-        </div>
-
-        <!-- SECTION 10: PROGRESS TRACKER -->
-        <div class="section-header">
-            <h2>10. Lesson Complete! 🎉</h2>
-        </div>
-        <div class="card" style="text-align: center;">
-            <h1 style="font-size: 4rem; margin-bottom: 10px;">🏆</h1>
-            <h3>Great job today!</h3>
-            <p>You practiced solving problems, sharing ideas, and giving advice!</p>
-            <br>
-            <p style="color: var(--text-muted);"><em>Did you check all the 'Done!' boxes at the top of each section? Make sure the progress bar at the very top of the page is 100% full!</em></p>
-        </div>
-
-        <!-- COPYRIGHT INFORMATION (Added per request) -->
-        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #E0E7FF; color: var(--text-muted); font-size: 0.95rem;">
-            <p style="font-weight: bold; color: var(--primary);">Bản quyền © ELS, English Lucero System</p>
-            <p>Mr. Đinh Văn Nam</p>
-        </footer>
-
+    <h1>A Good Classmate! 🤝</h1>
+    <p class="sub">Module 3 · Week 30 — School, Skills, and Healthy Choices</p>
+    <div class="objectives-card">
+      <h3>🎯 Today I can…</h3>
+      <ul>
+        <li>🤝 Say kind words to my classmates.</li>
+        <li>🧑‍🤝‍🧑 Talk about sharing, helping and teamwork.</li>
+        <li>📏 Say good classroom behaviour and healthy habits.</li>
+      </ul>
     </div>
+  </div>
 
-    <!-- JavaScript Interactions -->
-    <script>
-        // Data for Section 1 Warm-up (Slightly refined for clarity)
-        const warmupData = [
-            { q: "Do you like going to school? 😄", a: "Yes, I like seeing my friends! / No, I prefer the weekends." },
-            { q: "What do you do when you forget something at home? 🎒", a: "I ask my mom to bring it, or I borrow from a friend." },
-            { q: "Who do you talk to if you have a problem at school? 👩‍🏫", a: "I talk to my homeroom teacher or my best friend." },
-            { q: "Have you ever helped a friend at school? 🤝", a: "Yes, I helped my friend fix their broken pencil." },
-            { q: "What is a small problem you had this week? 🕵️‍♂️", a: "I couldn't find my eraser under the desk." }
-        ];
+  <!-- WARM-UP -->
+  <section class="section">
+    <div class="section-header"><h2>1. Let's Start! 🤝</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Say your answer out loud. Then tap the card to see an example. 😊</p>
+    <div class="teacher-note">👩‍🏫 <b>Teacher:</b> Smile and give an example of kindness first. Let kids answer by voice OR with a Zoom reaction.</div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">🙋</span><div>What do you say when a friend needs help?</div></div><div class="answer"><span class="say">Say:</span>"Let me help you!"</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">😊</span><div>How do you feel when you share?</div></div><div class="answer"><span class="say">Say:</span>"I feel happy when I share."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">🤝</span><div>What do good classmates do?</div></div><div class="answer"><span class="say">Say:</span>"Good classmates share and help."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">🗣️</span><div>What do you say when you make a mistake?</div></div><div class="answer"><span class="say">Say:</span>"Sorry! I will try again."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">👏</span><div>What do you say to a friend who does well?</div></div><div class="answer"><span class="say">Say:</span>"Great job! Well done!"</div></div>
+  </section>
 
-        // Generate Warm-up content dynamically
-        const warmupContainer = document.getElementById('warmup-container');
-        warmupData.forEach((item, index) => {
-            const html = `
-                <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #ddd;">
-                    <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 10px;">${item.q}</p>
-                    <button class="outline" onclick="toggle('warmup-ans-${index}')">Show Example</button>
-                    <p id="warmup-ans-${index}" class="hidden" style="margin-top: 10px; color: var(--success); font-weight: bold;">💬 "${item.a}"</p>
-                </div>
-            `;
-            warmupContainer.innerHTML += html;
-        });
+  <!-- VOCABULARY -->
+  <section class="section">
+    <div class="section-header"><h2>2. New Words 📖</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Tap a card to see a sentence. Tap 🔊 <b>Hear it</b> to listen!</p>
+    <div class="vocab-grid">
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">🤝</span><div class="word">share</div><div class="ex">"I share my pencils."</div><button class="hear" onclick="say('share. I share my pencils.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">🙏</span><div class="word">help</div><div class="ex">"I help my friend."</div><button class="hear" onclick="say('help. I help my friend.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">👂</span><div class="word">listen</div><div class="ex">"I listen to my teacher."</div><button class="hear" onclick="say('listen. I listen to my teacher.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">⏳</span><div class="word">wait</div><div class="ex">"I wait for my turn."</div><button class="hear" onclick="say('wait. I wait for my turn.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">🙇</span><div class="word">sorry</div><div class="ex">"I say sorry when I am wrong."</div><button class="hear" onclick="say('sorry. I say sorry when I am wrong.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">🧹</span><div class="word">tidy</div><div class="ex">"I keep my desk tidy."</div><button class="hear" onclick="say('tidy. I keep my desk tidy.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">👏</span><div class="word">kind</div><div class="ex">"I am kind to my classmates."</div><button class="hear" onclick="say('kind. I am kind to my classmates.',event)">🔊 Hear it</button></div>
+      <div class="vocab" onclick="toggleVocab(this)"><span class="emoji">🧑‍🤝‍🧑</span><div class="word">teamwork</div><div class="ex">"We work as a team."</div><button class="hear" onclick="say('teamwork. We work as a team.',event)">🔊 Hear it</button></div>
+    </div>
+  </section>
 
-        // Universal Toggle Function for elements
-        function toggle(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                // Optional simple fade in
-                el.style.opacity = 0;
-                setTimeout(() => el.style.opacity = 1, 50);
-                el.style.transition = "opacity 0.3s ease";
-            } else {
-                el.classList.add('hidden');
-            }
-        }
+  <!-- SPEAKING -->
+  <section class="section">
+    <div class="section-header"><h2>3. Let's Talk! 🗣️</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Answer each question. Need help? Tap 💡 <b>Ideas</b> or the <b>Show me</b> button.</p>
+    <div class="teacher-note">👩‍🏫 <b>Teacher:</b> Ask, wait, and give a thumbs up for every try. Put kids in pairs to practise "Can I help you?" and "Yes, please!"</div>
+    <div id="questions"></div>
+  </section>
 
-        // Review Game Logic
-        function checkGame(buttonElement, isCorrect) {
-            const parent = buttonElement.parentElement;
-            const allButtons = parent.querySelectorAll('button');
-            const feedbackBox = parent.querySelector('.feedback');
+  <!-- ROLE-PLAY -->
+  <section class="section">
+    <div class="section-header"><h2>4. Let's Act! 🎭</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Play with a friend. Tap <b>Show words</b> if you need help.</p>
+    <div class="roleplay">
+      <h3>🎬 Sharing is caring</h3>
+      <p>Ask to share crayons with a classmate. Say thank you.</p>
+      <div class="roles"><span class="role-pill">🧒 You</span><span class="role-pill">🧒 Classmate</span></div>
+      <button class="hint-toggle" onclick="toggleHint(this)">Show words 💬</button>
+      <div class="hint-box">
+        <p><b>You:</b> "Can I share your crayons, please?"</p>
+        <p><b>Classmate:</b> "Yes, sure! Here you are."</p>
+        <p><b>You:</b> "Thank you! You are very kind."</p>
+        <p><b>Classmate:</b> "You're welcome!"</p>
+      </div>
+    </div>
+    <div class="roleplay">
+      <h3>🎬 Oops! Sorry!</h3>
+      <p>You broke your classmate's pencil by accident. Say sorry and fix it.</p>
+      <div class="roles"><span class="role-pill">🧒 You</span><span class="role-pill">🧒 Classmate</span></div>
+      <button class="hint-toggle" onclick="toggleHint(this)">Show words 💬</button>
+      <div class="hint-box">
+        <p><b>You:</b> "Oh no! Sorry, I broke your pencil."</p>
+        <p><b>Classmate:</b> "It's okay. Accidents happen."</p>
+        <p><b>You:</b> "I will give you a new one."</p>
+        <p><b>Classmate:</b> "Thank you! You are a good friend."</p>
+      </div>
+    </div>
+  </section>
 
-            // Disable all buttons in this question group
-            allButtons.forEach(btn => btn.disabled = true);
+  <!-- FLUENCY -->
+  <section class="section">
+    <div class="section-header"><h2>5. Magic Sentences 🏗️</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Tap a card to flip it and see an example. Then say your own!</p>
+    <div class="flash-grid" id="flash-grid"></div>
+  </section>
 
-            if (isCorrect) {
-                buttonElement.style.backgroundColor = 'var(--success)';
-                buttonElement.style.color = 'white';
-                feedbackBox.innerHTML = '✅ Correct! Great advice!';
-                feedbackBox.style.color = 'var(--success)';
-            } else {
-                buttonElement.style.backgroundColor = '#FF5C5C'; // Red
-                buttonElement.style.color = 'white';
-                
-                // Highlight correct one
-                allButtons.forEach(btn => {
-                    if(btn.getAttribute('onclick').includes('true')) {
-                        btn.style.border = '2px solid var(--success)';
-                    }
-                });
+  <!-- REVIEW GAME -->
+  <section class="section">
+    <div class="section-header"><h2>6. Match Game 🎯</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Tap a word, then tap its picture!</p>
+    <div class="match-wrap">
+      <div class="match-col"><h4>Word</h4><div id="match-left"></div></div>
+      <div class="match-col"><h4>Picture</h4><div id="match-right"></div></div>
+    </div>
+    <div id="match-feedback"></div>
+  </section>
 
-                feedbackBox.innerHTML = '❌ Oops! Try to look for the safest and most polite option.';
-                feedbackBox.style.color = '#FF5C5C';
-            }
-            feedbackBox.style.display = 'block';
-        }
+  <!-- REFLECTION -->
+  <section class="section">
+    <div class="section-header"><h2>7. How Did I Do? 🪞</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Done</label></div>
+    <p class="intro">Tap Yes, A little, or Not yet.</p>
+    <div class="reflect" id="reflect"></div>
+  </section>
 
-        // Progress Tracker Logic
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.section-tracker');
-            const checkedBoxes = document.querySelectorAll('.section-tracker:checked');
-            
-            const total = checkboxes.length;
-            const checked = checkedBoxes.length;
-            
-            const percentage = (checked / total) * 100;
-            document.getElementById('progress-bar').style.width = percentage + '%';
-        }
-    </script>
+  <!-- COMPLETE -->
+  <section class="section">
+    <div class="section-header"><h2>8. All Done! 🎉</h2></div>
+    <ul class="tracker-list">
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I said kind words.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I learned new words.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I answered the questions.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I played the role-play.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I finished the game.</li>
+    </ul>
+    <div class="complete-banner">
+      <h2 id="done-title">Great start! 🌟</h2>
+      <div class="stars-big" id="done-stars">⭐</div>
+      <p id="done-msg" style="color:var(--text-muted);margin-top:8px">Tick the boxes when you finish!</p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="cc">Copyright © ELS — English Lucero System</p>
+    <p>Biên soạn bởi Mr. Lucero · Kids A1+ · A Good Classmate</p>
+    <p style="font-size:.8rem;opacity:.8">For classroom use with ELS learners.</p>
+  </footer>
+</div>
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+
+<script>
+const QUESTIONS=[
+ {em:'🤝',q:"What do you do to help your classmates?",ideas:["I help ___.","I share my ___."],model:"I help my friend with homework."},
+ {em:'👂',q:"How do you listen in class?",ideas:["I listen to ___.","I sit quietly."],model:"I listen to my teacher carefully."},
+ {em:'⏳',q:"What do you do when it is not your turn?",ideas:["I wait for my turn.","I am patient."],model:"I wait for my turn quietly."},
+ {em:'🙇',q:"What do you say when you make a mistake?",ideas:["I say sorry.","I say ___."],model:"I say sorry and try again."},
+ {em:'🧹',q:"How do you keep your classroom tidy?",ideas:["I put away ___.","I clean my desk."],model:"I put my books away neatly."},
+ {em:'🧑‍🤝‍🧑',q:"What do you do in a team game?",ideas:["I work with ___.","I take turns."],model:"I work with my team and take turns."},
+ {em:'👏',q:"What do you say to a kind classmate?",ideas:["Thank you!","You are kind."],model:"Thank you! You are very kind."},
+ {em:'🧼',q:"What do you do to stay healthy at school?",ideas:["I wash my hands.","I drink ___."],model:"I wash my hands and drink water every day."}
+];
+
+const STARTERS=[
+ {f:"I help my…",b:"I help my classmate with math."},
+ {f:"I share my…",b:"I share my crayons and books."},
+ {f:"I say sorry when…",b:"I say sorry when I make a mistake."},
+ {f:"I listen to…",b:"I listen to my teacher and friends."},
+ {f:"We work as a…",b:"We work as a team in class."},
+ {f:"A good classmate is…",b:"A good classmate is kind and helpful."}
+];
+
+const PAIRS=[
+ {l:"share",r:"🤝"},
+ {l:"help",r:"🙏"},
+ {l:"listen",r:"👂"},
+ {l:"tidy",r:"🧹"},
+ {l:"kind",r:"👏"}
+];
+
+const REFLECT=[
+ "🤝 I can share with my classmates.",
+ "🙏 I can help a friend.",
+ "🙇 I can say sorry.",
+ "👂 I can listen well in class.",
+ "⭐ I tried my best!"
+];
+
+document.getElementById('questions').innerHTML=QUESTIONS.map((it,i)=>`
+ <div class="reveal-card" onclick="toggle(this)">
+   <div class="q"><span class="em">${it.em}</span><div><b>${i+1}.</b> ${it.q}</div></div>
+   <div class="answer" onclick="event.stopPropagation()">
+     <div class="q-idea"><b>💡 Ideas:</b> ${it.ideas.join(" · ")}</div>
+     <button class="sample-btn" onclick="showSample(this)">👀 Show me</button>
+     <div class="sample-text">${it.model}</div>
+   </div>
+ </div>`).join('');
+
+document.getElementById('flash-grid').innerHTML=STARTERS.map(s=>`
+ <div class="flash" onclick="this.classList.toggle('flip')"><div class="front">${s.f}</div><div class="back">${s.b}</div></div>`).join('');
+
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
+const rights=shuffle(PAIRS.map((p,i)=>({...p,i})));
+document.getElementById('match-left').innerHTML=PAIRS.map((p,i)=>`<div class="match-item" data-l="${i}" onclick="pickL(this)">${p.l}</div>`).join('');
+document.getElementById('match-right').innerHTML=rights.map(p=>`<div class="match-item" data-r="${p.i}" onclick="pickR(this)" style="font-size:2rem">${p.r}</div>`).join('');
+let selL=null, matched=0;
+function pickL(el){if(el.classList.contains('done'))return;document.querySelectorAll('#match-left .match-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');selL=el;}
+function pickR(el){if(!selL||el.classList.contains('done'))return;
+  if(selL.dataset.l===el.dataset.r){selL.classList.add('done');el.classList.add('done');selL.classList.remove('selected');matched++;
+    fb(matched===PAIRS.length?"🎉 Yay! You did it!":"✅ Great job!","var(--success)");selL=null;}
+  else{fb("🙂 Try again!","var(--warning)");}}
+function fb(t,c){const f=document.getElementById('match-feedback');f.textContent=t;f.style.color=c;}
+
+document.getElementById('reflect').innerHTML=REFLECT.map(r=>`
+ <div class="r-item"><span>${r}</span>
+   <div class="choice">
+     <button onclick="pickChoice(this)">Yes</button>
+     <button onclick="pickChoice(this)">A little</button>
+     <button onclick="pickChoice(this)">Not yet</button>
+   </div>
+ </div>`).join('');
+function pickChoice(btn){[...btn.parentElement.children].forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+
+function toggle(el){el.classList.toggle('open');}
+function toggleVocab(el){el.classList.toggle('open');}
+function showSample(btn){btn.nextElementSibling.classList.toggle('show');}
+function toggleHint(btn){btn.nextElementSibling.classList.toggle('show');}
+function say(t,e){e.stopPropagation();if('speechSynthesis'in window){const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u);}}
+
+function updateProgress(){
+  const all=document.querySelectorAll('.tracker');
+  const done=[...all].filter(c=>c.checked).length;
+  const pct=Math.round(done/all.length*100);
+  document.getElementById('progress-bar').style.width=pct+'%';
+  const t=document.getElementById('done-title'),m=document.getElementById('done-msg'),s=document.getElementById('done-stars');
+  const n=Math.max(1,Math.round(pct/20));
+  s.textContent='⭐'.repeat(n);
+  if(pct===100){t.textContent="🎉 Super! You are a great classmate!";m.textContent="You finished the whole lesson. Keep being kind! 🌟";}
+  else if(pct>=60){t.textContent="😃 Well done!";m.textContent="Nearly finished — keep going, kind friend!";}
+  else{t.textContent="Great start! 🌟";m.textContent="Tick the boxes when you finish!";}
+}
+updateProgress();
+</script>
 </body>
 </html>
